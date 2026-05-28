@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אמיתי לוי | איש חינוך ויזם</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#1a3a5c;--accent:#2980b9;--gold:#d4a843;--light:#f4f7fa;--dark:#0d1b2a;--text:#2c3e50}
+body{font-family:'Heebo',sans-serif;color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* Navbar */
+.navbar{position:fixed;top:0;right:0;left:0;z-index:1000;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+.navbar.scrolled{background:rgba(26,58,92,.97);padding:10px 5%;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.nav-logo{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:1px}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:#fff;font-weight:500;font-size:.95rem;position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;right:0;width:0;height:2px;background:var(--gold);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+.hamburger span{width:28px;height:3px;background:#fff;border-radius:2px;transition:.3s}
+
+/* Hero */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--dark) 0%,var(--primary) 40%,#1e4d7a 100%);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:60px;padding:0 5%;width:100%;z-index:2}
+.hero-text{flex:1;color:#fff}
+.hero h1{font-size:4rem;font-weight:900;margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.3);line-height:1.2}
+.hero h2{font-size:1.5rem;font-weight:300;color:var(--gold);margin-bottom:20px;letter-spacing:2px}
+.hero p{font-size:1.1rem;opacity:.85;max-width:550px;line-height:1.9;margin-bottom:35px}
+.hero-btn{display:inline-block;padding:14px 45px;border:2px solid var(--gold);color:#fff;font-size:1rem;font-weight:600;border-radius:50px;transition:all .3s;letter-spacing:1px}
+.hero-btn:hover{background:var(--gold);color:var(--dark)}
+.hero-photo{flex:0 0 auto;position:relative}
+.hero-photo img{width:420px;height:420px;object-fit:cover;border-radius:50%;border:4px solid var(--gold);box-shadow:0 0 60px rgba(212,168,67,.3),0 20px 60px rgba(0,0,0,.4);animation:float 6s ease-in-out infinite}
+.hero-photo::before{content:'';position:absolute;inset:-15px;border-radius:50%;border:2px solid rgba(212,168,67,.2);animation:pulse-ring 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse-ring{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.6;transform:scale(1.03)}}
+.scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
+.scroll-indicator i{color:var(--gold);font-size:1.5rem}
+
+/* Section base */
+section{padding:100px 5%}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{font-size:2.5rem;font-weight:800;color:var(--primary);margin-bottom:10px}
+.section-title .line{width:60px;height:4px;background:var(--gold);margin:0 auto;border-radius:2px}
+
+/* About */
+.about{background:#fff}
+.about-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-visual{position:relative;text-align:center}
+.about-photo-wrap{position:relative;display:inline-block;margin-bottom:25px}
+.about-photo{width:300px;height:300px;object-fit:cover;border-radius:20px;box-shadow:0 20px 50px rgba(26,58,92,.25)}
+.about-photo-wrap::after{content:'';position:absolute;inset:-8px;border-radius:24px;border:2px solid var(--gold);z-index:-1}
+.about-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-item{background:var(--light);border-radius:12px;padding:18px 10px;text-align:center;border:1px solid #e8edf2}
+.stat-item .num{font-size:1.5rem;font-weight:800;color:var(--primary)}
+.stat-item .label{font-size:.78rem;color:#888;margin-top:4px}
+.about-text h3{font-size:1.6rem;color:var(--primary);margin-bottom:20px;font-weight:700}
+.about-text p{line-height:2;color:#555;font-size:1.02rem;margin-bottom:15px}
+
+/* Timeline */
+.timeline-section{background:var(--light)}
+.timeline{max-width:900px;margin:0 auto;position:relative;padding-right:40px}
+.timeline::before{content:'';position:absolute;right:15px;top:0;bottom:0;width:3px;background:linear-gradient(var(--gold),var(--accent))}
+.timeline-item{position:relative;margin-bottom:45px;padding-right:50px}
+.timeline-item::before{content:'';position:absolute;right:-1px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 3px var(--gold);z-index:1}
+.timeline-item h3{font-size:1.15rem;color:var(--primary);font-weight:700;margin-bottom:8px}
+.timeline-item h3 span{background:var(--gold);color:#fff;padding:2px 12px;border-radius:20px;font-size:.8rem;margin-left:10px;font-weight:500}
+.timeline-item p{color:#666;line-height:1.9;font-size:.97rem}
+
+/* Values */
+.values{background:#fff}
+.values-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.value-card{background:var(--light);border-radius:16px;padding:40px 30px;text-align:center;transition:all .4s;border:2px solid transparent}
+.value-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 15px 40px rgba(0,0,0,.1)}
+.value-card i{font-size:2.5rem;color:var(--accent);margin-bottom:20px}
+.value-card h3{font-size:1.2rem;color:var(--primary);margin-bottom:12px;font-weight:700}
+.value-card p{color:#666;font-size:.95rem;line-height:1.8}
+
+/* Quote */
+.quote-section{background:linear-gradient(135deg,var(--dark),var(--primary));padding:80px 5%;text-align:center;color:#fff}
+.quote-section blockquote{max-width:800px;margin:0 auto;font-size:1.6rem;line-height:2;font-weight:300;position:relative;padding:0 40px}
+.quote-section blockquote::before,.quote-section blockquote::after{content:'"';font-size:4rem;color:var(--gold);position:absolute;font-family:serif}
+.quote-section blockquote::before{top:-20px;right:-10px}
+.quote-section blockquote::after{bottom:-40px;left:-10px}
+.quote-section cite{display:block;margin-top:25px;color:var(--gold);font-size:1.1rem;font-style:normal;font-weight:600}
+
+/* Services */
+.services{background:var(--light)}
+.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.service-card{background:#fff;border-radius:16px;padding:35px 30px;display:flex;gap:20px;align-items:flex-start;transition:all .3s;border-right:4px solid transparent}
+.service-card:hover{border-right-color:var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.service-card .icon-wrap{width:60px;height:60px;min-width:60px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem}
+.service-card h3{font-size:1.1rem;color:var(--primary);margin-bottom:8px;font-weight:700}
+.service-card p{color:#666;font-size:.93rem;line-height:1.8}
+
+/* Contact */
+.contact{background:#fff}
+.contact-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-info{display:flex;flex-direction:column;gap:25px}
+.contact-info h3{font-size:1.5rem;color:var(--primary);margin-bottom:10px}
+.contact-info p{color:#666;line-height:1.8;margin-bottom:20px}
+.info-item{display:flex;align-items:center;gap:15px}
+.info-item i{width:45px;height:45px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+.info-item span{color:#555;font-size:1rem}
+.social-links{display:flex;gap:12px;margin-top:20px}
+.social-links a{width:45px;height:45px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;transition:all .3s}
+.social-links a:hover{background:var(--gold);transform:scale(1.1)}
+.contact-form{display:flex;flex-direction:column;gap:15px}
+.contact-form input,.contact-form textarea{padding:14px 20px;border:2px solid #e0e6ed;border-radius:10px;font-family:'Heebo';font-size:.95rem;transition:border .3s;outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
+.contact-form textarea{min-height:140px;resize:vertical}
+.contact-form button{padding:14px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;border-radius:10px;font-size:1.05rem;font-weight:600;cursor:pointer;font-family:'Heebo';transition:all .3s}
+.contact-form button:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(41,128,185,.4)}
+
+/* Footer */
+footer{background:var(--dark);color:#fff;text-align:center;padding:40px 5%}
+footer p{opacity:.7;font-size:.9rem}
+footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:var(--gold)}
+
+/* Mobile */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;background:var(--dark);flex-direction:column;padding:80px 30px;transition:.4s;box-shadow:-5px 0 30px rgba(0,0,0,.5)}
+  .nav-links.active{right:0}
+  .hero-inner{flex-direction:column-reverse;text-align:center;padding-top:100px}
+  .hero-photo img{width:250px;height:250px}
+  .hero h1{font-size:2.3rem}
+  .hero h2{font-size:1.1rem}
+  .about-stats-row{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid,.services-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .quote-section blockquote{font-size:1.2rem;padding:0 20px}
+  section{padding:60px 5%}
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">אמיתי <span>לוי</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">דף הבית</a></li>
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#timeline">הדרך שלי</a></li>
+    <li><a href="#values">ערכים</a></li>
+    <li><a href="#services">תחומי פעילות</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>אמיתי לוי</h1>
+      <h2>מייסד | חינוך | מנהיגות | אסטרטגיה</h2>
+      <p>מחבר בין שליחות חינוכית, ניסיון ניהולי, יזמות מעשית ואמונה גדולה באנשים. חינוך הוא לא רק מקצוע — אלא דרך חיים, שליחות ואחריות.</p>
+      <a href="#about" class="hero-btn">הסיפור שלי</a>
+    </div>
+    <div class="hero-photo">
+      <img src="amitai.jpg" alt="אמיתי לוי">
+    </div>
+  </div>
+  <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="section-title">
+    <h2>מי אני</h2>
+    <div class="line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-photo-wrap">
+        <img src="amitai.jpg" alt="אמיתי לוי" class="about-photo">
+      </div>
+      <div class="about-stats-row">
+        <div class="stat-item"><div class="num">20+</div><div class="label">שנות ניסיון</div></div>
+        <div class="stat-item"><div class="num">B.Ed</div><div class="label">תואר בחינוך</div></div>
+        <div class="stat-item"><div class="num">100+</div><div class="label">צוותים שהובלו</div></div>
+        <div class="stat-item"><div class="num">1000+</div><div class="label">ילדים שחונכו</div></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <h3>הסיפור שלי — מגיל 20 ועד היום</h3>
+      <p>מגיל צעיר ידעתי שהחיים שלי קשורים בחינוך, באנשים ובשליחות. ראיתי סביבי אנשים שמקדישים את החיים שלהם לילדים, לקהילה, להוראה ולהשפעה, ומשם צמח בי הרצון להיות אדם שמחבר, מלמד, מדריך ומרים אנשים.</p>
+      <p>למדתי חינוך, הוצאתי תואר ראשון ותעודת הוראה, והתחלתי לבנות את עצמי כמורה וכאיש חינוך. הבנתי שחינוך הוא לא רק להעביר חומר — חינוך הוא לראות ילד, להבין צוות, להרגיע הורה, להחזיק מערכת, לזהות קושי ולבנות אמון.</p>
+      <p>היום, אחרי שנים של ניסיון בשטח, אני רואה את עצמי כאיש חינוך ויזם — אדם שבא מעולם ההוראה והשליחות, עבר דרך הניהול והיזמות, ומחבר בין לב, שכל, מערכת ואמונה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section" id="timeline">
+  <div class="section-title">
+    <h2>הדרך שלי</h2>
+    <div class="line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>שורשים <span>ההתחלה</span></h3>
+      <p>גדילה בבית ובסביבה של תורה, חינוך, רבנים ומורים. משם נולד החיבור העמוק לעולם ההוראה והשליחות.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>הכשרה אקדמית <span>תואר ראשון</span></h3>
+      <p>לימודי חינוך, תואר ראשון ותעודת הוראה. בניית זהות כמורה וכאיש חינוך. תחילת הדרך העצמאית.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>הוראה והדרכה <span>בשטח</span></h3>
+      <p>עבודה כמורה, מדריך ואיש שטח עם ילדים ונוער. הבנה שחינוך אמיתי מתחיל בקשר אישי, אמון וראיית הילד.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>שליחות חינוכית <span>חו״ל</span></h3>
+      <p>שליחות בקהילות יהודיות בחו״ל, מתוך תחושת אחריות לזהות יהודית, קהילה וחיבור לעם ישראל. הבנה שהחינוך הוא שליחות חיים.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>ניהול חינוכי <span>הובלה</span></h3>
+      <p>מעבר לתפקידי ריכוז, ניהול אזור, ניהול צוותים וניהול מערכות חינוך בלתי פורמליות. ניהול אנשים, בניית אמון והתמודדות עם משברים.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>יזמות בחינוך <span>הקמה</span></h3>
+      <p>הקמת וניהול מסגרות, צהרונים, קייטנות, חוגים ותכניות חינוכיות. בניית פעילות עסקית־חינוכית מהשטח ועד ניהול מלא — שיווק, מכירות, תפעול, כספים, קשר עם רשויות.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>כפיר תכניות — היום <span>הרחבה</span></h3>
+      <p>הובלת "כפיר תכניות" — צהרונים, קייטנות, העשרה בספורט לבתי ספר. הרחבה לדובאי וסין. חיבור בין אמונה, אנשים, חינוך, ניהול ויזמות.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values" id="values">
+  <div class="section-title">
+    <h2>הערכים שמובילים אותי</h2>
+    <div class="line"></div>
+  </div>
+  <div class="values-grid">
+    <div class="value-card">
+      <i class="fas fa-child"></i>
+      <h3>ראיית הילד</h3>
+      <p>חינוך מתחיל ברגע שרואים את הילד כמו שהוא — לא רק כתלמיד, אלא כאדם שלם עם עולם פנימי, חלומות ופוטנציאל.</p>
+    </div>
+    <div class="value-card">
+      <i class="fas fa-hands-helping"></i>
+      <h3>שליחות ואחריות</h3>
+      <p>חינוך הוא לא מקצוע — אלא שליחות חיים. אחריות לבנות מערכות שמגדלות ילדים, צוותים וקהילות.</p>
+    </div>
+    <div class="value-card">
+      <i class="fas fa-users"></i>
+      <h3>הובלת צוותים</h3>
+      <p>לקחת צוות מבולבל ולתת לו כיוון. לקחת אדם ולהראות לו שהוא מסוגל יותר. ניהול מתוך אמון והכלה.</p>
+    </div>
+    <div class="value-card">
+      <i class="fas fa-lightbulb"></i>
+      <h3>יזמות מעשית</h3>
+      <p>לקחת רעיון ולהפוך אותו למערכת חיה. מהשטח, דרך התכנון, ועד לפעילות שעובדת יום יום.</p>
+    </div>
+    <div class="value-card">
+      <i class="fas fa-star-of-david"></i>
+      <h3>אמונה וזהות</h3>
+      <p>חיבור עמוק לתורה, למסורת ולעם ישראל. חינוך שמחבר בין שורשים, זהות ומשמעות.</p>
+    </div>
+    <div class="value-card">
+      <i class="fas fa-globe"></i>
+      <h3>חשיבה גלובלית</h3>
+      <p>חינוך ישראלי ויהודי שחוצה גבולות. הרחבת הפעילות לדובאי ולסין מתוך אמונה בחינוך אוניברסלי.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+  <blockquote>
+    החיים שלי הם מסע של חינוך: להיות מורה, להיות מדריך, להיות שליח, להיות יזם — ובעיקר, להיות אדם שמאמין באנשים, בילדים, בצוותים וביכולת שלהם לגדול.
+  </blockquote>
+  <cite>— אמיתי לוי</cite>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="section-title">
+    <h2>תחומי פעילות</h2>
+    <div class="line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon-wrap"><i class="fas fa-school"></i></div>
+      <div>
+        <h3>צהרונים ומסגרות חינוכיות</h3>
+        <p>הקמה, ניהול והובלת צהרונים ומסגרות חינוכיות לילדים, עם דגש על איכות חינוכית, בטיחות וקשר עם הורים.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="icon-wrap"><i class="fas fa-sun"></i></div>
+      <div>
+        <h3>קייטנות וחופשות</h3>
+        <p>תכנון והפעלת קייטנות בחופשות — חוויות חינוכיות, ספורטיביות וחברתיות לילדים ונוער.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="icon-wrap"><i class="fas fa-futbol"></i></div>
+      <div>
+        <h3>העשרה בספורט לבתי ספר</h3>
+        <p>תכניות העשרה ספורטיביות לבתי ספר — חינוך גופני, חוגים ופעילויות שמחזקות גוף ונפש.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="icon-wrap"><i class="fas fa-chalkboard-teacher"></i></div>
+      <div>
+        <h3>הדרכה וליווי צוותים</h3>
+        <p>הדרכת צוותים חינוכיים, ליווי מנהלים ומדריכים, בניית תרבות ארגונית חינוכית ופיתוח מקצועי.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="icon-wrap"><i class="fas fa-rocket"></i></div>
+      <div>
+        <h3>יזמות חינוכית</h3>
+        <p>ייעוץ, הקמה וליווי של מיזמים חינוכיים — מרעיון ראשוני ועד למערכת חיה ופועלת.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="icon-wrap"><i class="fas fa-plane"></i></div>
+      <div>
+        <h3>פעילות בינלאומית</h3>
+        <p>הרחבת הפעילות החינוכית לשווקים בינלאומיים — דובאי, סין ועוד. חינוך ישראלי שחוצה גבולות.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="section-title">
+    <h2>צור קשר</h2>
+    <div class="line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>בואו נדבר</h3>
+      <p>מעוניינים בשיתוף פעולה, הרצאה, ייעוץ או סתם לשמוע עוד? אשמח לשמוע מכם.</p>
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <span>amitai3386@gmail.com</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-building"></i>
+        <span>כפיר תכניות — אמיתי לוי יזמות בע״מ</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>ישראל | דובאי | סין</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault();alert('ההודעה נשלחה בהצלחה!')">
+      <input type="text" placeholder="שם מלא" required>
+      <input type="email" placeholder="אימייל" required>
+      <input type="tel" placeholder="טלפון">
+      <textarea placeholder="ההודעה שלך..."></textarea>
+      <button type="submit">שליחה <i class="fas fa-paper-plane"></i></button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">אמיתי לוי — חינוך | יזמות | שליחות</div>
+  <p>&copy; 2026 כל הזכויות שמורות | אמיתי לוי יזמות בע״מ</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.querySelector('.navbar').classList.toggle('scrolled',scrollY>50)
+})
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault()
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})
+    document.getElementById('navLinks').classList.remove('active')
+  })
+})
+</script>
+</body>
+</html>
