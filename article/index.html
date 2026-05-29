@@ -41,6 +41,19 @@ body{font-family:'Heebo',sans-serif;background:#fff;color:var(--text);line-heigh
 .pull-quote p{color:#fff;font-size:1.1rem;line-height:2;font-weight:300}
 .pull-quote::before{content:'\201D';position:absolute;top:-5px;right:20px;font-size:3rem;color:var(--gold);font-family:serif}
 
+/* Newspaper toggle */
+.paper-btn{display:block;max-width:400px;margin:0 auto 10px;padding:14px 24px;background:var(--navy);color:var(--gold);border:2px solid var(--gold);border-radius:30px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s}
+.paper-btn:hover{background:var(--gold);color:#fff}
+
+/* Newspaper section */
+.newspaper{background:var(--light);padding:50px 24px;text-align:center}
+.newspaper h3{font-size:1.2rem;color:var(--navy);font-weight:900;margin-bottom:8px}
+.newspaper .sub{font-size:.85rem;color:var(--muted);margin-bottom:24px}
+.newspaper .pages{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.newspaper .pages img{width:100%;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.12);border:1px solid #ddd}
+.newspaper .pdf-link{display:inline-block;margin-top:20px;color:var(--gold);font-weight:700;font-size:.9rem;text-decoration:none}
+.newspaper .pdf-link:hover{text-decoration:underline}
+
 /* Closing */
 .closing{text-align:center;padding:40px 24px 50px;background:var(--light);border-top:3px solid var(--gold)}
 .closing .quote{font-size:1.15rem;color:var(--navy);font-weight:700;line-height:2;max-width:600px;margin:0 auto 20px}
@@ -85,6 +98,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:
   <h1>"הבלוף של התעשייה נחשף: המשרד שלי הוא אשכולות הגנים, והסייעת היא המלכה"</h1>
   <p class="subtitle">אמיתי לוי, יזם חינוכי חברתי, בעלים של חברת כפיר צהרונים, בוגר ישיבת "מורשת יעקב" ובעל תואר ראשון ותעודת הוראה, בראיון בלעדי לעיתון Talk.</p>
   <div class="source">עיתון Talk | סיוון תשפ״ו</div>
+  <a href="#newspaper" class="paper-btn" style="margin-top:24px">📰 לקריאה מתוך העיתון ↓</a>
 </div>
 
 <div class="article">
@@ -128,6 +142,16 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:
 <p class="a">אל תסתכלו רק על הפרוספקט. תסתכלו לצוות בעיניים. שידוך בין גננת לסייעת הוא קריטי; אם אין כימיה והן לא מגובשות, הילדים ירגישו את זה מיד וזה יבוא על חשבונם. חיבור וגיבוש הצוות הוא חובה להצלחת הגן ושמחת הילדים. אם יש מנהל שחי את השטח ולוקח אחריות אישית על כל שידוך וכל חיוך – אתם יכולים לישון בשקט.</p>
 </div>
 
+</div>
+
+<div class="newspaper" id="newspaper">
+  <h3>📰 הכתבה כפי שפורסמה בעיתון Talk</h3>
+  <p class="sub">סיוון תשפ״ו | גיליון מיוחד</p>
+  <div class="pages">
+    <img src="newspaper-page-1.jpg" alt="כתבה בעיתון Talk — עמוד 1" loading="lazy">
+    <img src="newspaper-page-2.jpg" alt="כתבה בעיתון Talk — עמוד 2" loading="lazy">
+  </div>
+  <a href="talk-article.pdf" class="pdf-link" target="_blank">📄 להורדת הכתבה כ-PDF</a>
 </div>
 
 <div class="closing">
