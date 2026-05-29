@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אמיתי לוי | איש חינוך ויזם</title>
+<title>אמיתי לוי | מחזירים את החיוך לחינוך</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -85,10 +85,26 @@ section{padding:100px 5%}
 /* Quote */
 .quote-section{background:linear-gradient(135deg,var(--dark),var(--primary));padding:80px 5%;text-align:center;color:#fff}
 .quote-section blockquote{max-width:800px;margin:0 auto;font-size:1.6rem;line-height:2;font-weight:300;position:relative;padding:0 40px}
-.quote-section blockquote::before,.quote-section blockquote::after{content:'"';font-size:4rem;color:var(--gold);position:absolute;font-family:serif}
+.quote-section blockquote::before,.quote-section blockquote::after{content:'\201D';font-size:4rem;color:var(--gold);position:absolute;font-family:serif}
 .quote-section blockquote::before{top:-20px;right:-10px}
 .quote-section blockquote::after{bottom:-40px;left:-10px}
 .quote-section cite{display:block;margin-top:25px;color:var(--gold);font-size:1.1rem;font-style:normal;font-weight:600}
+
+/* Media Section */
+.media-section{background:#fff}
+.media-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.media-article{grid-column:1/-1;background:var(--light);border-radius:16px;padding:40px;display:flex;gap:30px;align-items:center;border:2px solid transparent;transition:all .3s}
+.media-article:hover{border-color:var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.08);cursor:pointer}
+.media-article .article-icon{width:80px;height:80px;min-width:80px;border-radius:16px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem}
+.media-article .article-content h3{font-size:1.2rem;color:var(--primary);font-weight:700;margin-bottom:8px;line-height:1.6}
+.media-article .article-source{font-size:.85rem;color:var(--gold);font-weight:600;margin-bottom:10px}
+.media-article .article-excerpt{color:#666;font-size:.95rem;line-height:1.8}
+.media-video{background:var(--light);border-radius:16px;padding:30px;text-align:center;transition:all .3s;border:2px solid transparent;cursor:pointer}
+.media-video:hover{border-color:var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.media-video .play-icon{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;margin:0 auto 15px;color:#fff;font-size:1.5rem;transition:transform .3s}
+.media-video:hover .play-icon{transform:scale(1.1)}
+.media-video h4{font-size:1.05rem;color:var(--primary);font-weight:700;margin-bottom:6px}
+.media-video p{color:#888;font-size:.85rem}
 
 /* Services */
 .services{background:var(--light)}
@@ -123,6 +139,26 @@ footer{background:var(--dark);color:#fff;text-align:center;padding:40px 5%}
 footer p{opacity:.7;font-size:.9rem}
 footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:var(--gold)}
 
+/* Modal */
+body.modal-open{overflow:hidden}
+.modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal-content{background:#fff;border-radius:16px;padding:45px 40px;max-width:800px;width:92%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform .3s}
+.modal-overlay.active .modal-content{transform:translateY(0)}
+.modal-close{position:absolute;top:15px;left:15px;width:36px;height:36px;border-radius:50%;border:2px solid var(--gold);background:none;color:var(--gold);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-family:'Heebo'}
+.modal-close:hover{background:var(--gold);color:#fff}
+.modal-content::-webkit-scrollbar{width:6px}
+.modal-content::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+.modal-header{text-align:center;margin-bottom:30px;padding-bottom:25px;border-bottom:2px solid var(--light)}
+.modal-header .modal-source{font-size:.85rem;color:var(--gold);font-weight:600;margin-bottom:12px}
+.modal-header h2{font-size:1.5rem;color:var(--primary);font-weight:800;line-height:1.6;margin-bottom:10px}
+.modal-header .modal-subtitle{font-size:.95rem;color:#666;line-height:1.8}
+.modal-qa{margin-bottom:22px}
+.modal-qa .q{font-weight:700;color:var(--primary);margin-bottom:6px;line-height:1.8;font-size:1rem}
+.modal-qa .a{color:#555;line-height:2;font-size:.97rem}
+.modal-closing-quote{margin-top:35px;padding:25px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:12px;color:#fff;font-size:1.05rem;line-height:2;text-align:center;font-weight:300;position:relative}
+.modal-closing-quote::before{content:'\201D';font-size:3rem;color:var(--gold);position:absolute;top:-5px;right:15px;font-family:serif}
+
 /* Mobile */
 @media(max-width:768px){
   .hamburger{display:flex}
@@ -136,6 +172,11 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
   .about-grid,.contact-grid,.services-grid{grid-template-columns:1fr}
   .values-grid{grid-template-columns:1fr}
   .quote-section blockquote{font-size:1.2rem;padding:0 20px}
+  .media-grid{grid-template-columns:1fr}
+  .media-article{flex-direction:column;text-align:center}
+  .modal-content{padding:25px 18px;width:96%}
+  .modal-header h2{font-size:1.2rem}
+  .modal-closing-quote{font-size:.95rem;padding:18px}
   section{padding:60px 5%}
 }
 </style>
@@ -150,6 +191,7 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
     <li><a href="#about">אודות</a></li>
     <li><a href="#timeline">הדרך שלי</a></li>
     <li><a href="#values">ערכים</a></li>
+    <li><a href="#media">בתקשורת</a></li>
     <li><a href="#services">תחומי פעילות</a></li>
     <li><a href="#contact">צור קשר</a></li>
   </ul>
@@ -163,8 +205,9 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
   <div class="hero-inner">
     <div class="hero-text">
       <h1>אמיתי לוי</h1>
-      <h2>מייסד | חינוך | מנהיגות | אסטרטגיה</h2>
-      <p>מחבר בין שליחות חינוכית, ניסיון ניהולי, יזמות מעשית ואמונה גדולה באנשים. חינוך הוא לא רק מקצוע — אלא דרך חיים, שליחות ואחריות.</p>
+      <h2>מחזירים את החיוך לחינוך</h2>
+      <p>חינוך לא מנהלים מהמשרד. חינוך מנהיגים מהשטח — עם לב, אחריות ואמונה באנשים.</p>
+      <p style="font-size:.9rem;opacity:.65;margin-bottom:30px;margin-top:-20px">כפיר פרויקטים בחינוך — אמיתי לוי יזמות בע״מ</p>
       <a href="#about" class="hero-btn">הסיפור שלי</a>
     </div>
     <div class="hero-photo">
@@ -177,7 +220,7 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
 <!-- About -->
 <section class="about" id="about">
   <div class="section-title">
-    <h2>מי אני</h2>
+    <h2>הסיפור שלי</h2>
     <div class="line"></div>
   </div>
   <div class="about-grid">
@@ -193,10 +236,10 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
       </div>
     </div>
     <div class="about-text">
-      <h3>הסיפור שלי — מגיל 20 ועד היום</h3>
-      <p>מגיל צעיר ידעתי שהחיים שלי קשורים בחינוך, באנשים ובשליחות. ראיתי סביבי אנשים שמקדישים את החיים שלהם לילדים, לקהילה, להוראה ולהשפעה, ומשם צמח בי הרצון להיות אדם שמחבר, מלמד, מדריך ומרים אנשים.</p>
-      <p>למדתי חינוך, הוצאתי תואר ראשון ותעודת הוראה, והתחלתי לבנות את עצמי כמורה וכאיש חינוך. הבנתי שחינוך הוא לא רק להעביר חומר — חינוך הוא לראות ילד, להבין צוות, להרגיע הורה, להחזיק מערכת, לזהות קושי ולבנות אמון.</p>
-      <p>היום, אחרי שנים של ניסיון בשטח, אני רואה את עצמי כאיש חינוך ויזם — אדם שבא מעולם ההוראה והשליחות, עבר דרך הניהול והיזמות, ומחבר בין לב, שכל, מערכת ואמונה.</p>
+      <h3>מי עומד מאחורי החזון</h3>
+      <p>גדלתי במושב אחיעזר, בתוך משפחה של מחנכים, רבנים ומורים. חינוך הוא לא מקצוע שבחרתי — הוא חלק ממי שאני. למדתי בישיבת מורשת יעקב, השלמתי תואר ראשון בחינוך, ויצאתי לדרך עם חלום אחד: לעשות חינוך אחרת.</p>
+      <p>בשליחות במלבורן, אוסטרליה, גיליתי את השיעור הגדול של חיי — הדרך שבה מנהלים מתייחסים לצוותים שלהם היא שקובעת את החוויה של הילדים. חיברתי צעירים יהודים לזהות שלהם, ויצרתי חברויות שנמשכות עד היום.</p>
+      <p>חזרתי לארץ והקמתי את כפיר — חברת פרויקטים בחינוך — על עיקרון אחד: להיות בשטח, לא מאחורי שולחן. אשתי מירי מנהלת את הצד העסקי כדי שאני אהיה מאה אחוז עם הצוותים והילדים. כל יום. בכל גן. בכל כיתה.</p>
     </div>
   </div>
 </section>
@@ -209,32 +252,32 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
   </div>
   <div class="timeline">
     <div class="timeline-item">
-      <h3>שורשים <span>ההתחלה</span></h3>
-      <p>גדילה בבית ובסביבה של תורה, חינוך, רבנים ומורים. משם נולד החיבור העמוק לעולם ההוראה והשליחות.</p>
+      <h3>שורשים <span>מושב אחיעזר</span></h3>
+      <p>גדל במשפחה של מחנכים ורבנים. חינוך לא היה בחירה — הוא היה דרך חיים מהיום הראשון.</p>
     </div>
     <div class="timeline-item">
-      <h3>הכשרה אקדמית <span>תואר ראשון</span></h3>
-      <p>לימודי חינוך, תואר ראשון ותעודת הוראה. בניית זהות כמורה וכאיש חינוך. תחילת הדרך העצמאית.</p>
+      <h3>מורשת יעקב <span>ישיבה ותואר</span></h3>
+      <p>למד בישיבת מורשת יעקב, סיים תואר ראשון בחינוך ותעודת הוראה. הבסיס למנהיגות חינוכית הונח.</p>
     </div>
     <div class="timeline-item">
       <h3>הוראה והדרכה <span>בשטח</span></h3>
-      <p>עבודה כמורה, מדריך ואיש שטח עם ילדים ונוער. הבנה שחינוך אמיתי מתחיל בקשר אישי, אמון וראיית הילד.</p>
+      <p>עבודה ישירה עם ילדים ונוער. הבנה עמוקה שהקשר האישי הוא הכלי החזק ביותר של מחנך.</p>
     </div>
     <div class="timeline-item">
-      <h3>שליחות חינוכית <span>חו״ל</span></h3>
-      <p>שליחות בקהילות יהודיות בחו״ל, מתוך תחושת אחריות לזהות יהודית, קהילה וחיבור לעם ישראל. הבנה שהחינוך הוא שליחות חיים.</p>
+      <h3>שליחות באוסטרליה <span>מלבורן</span></h3>
+      <p>בשליחות חינוכית במלבורן חיבר צעירים יהודים לזהותם. יצר חברויות שנמשכות עד היום. שם למד שצוות שמרגיש מוערך — מייצר חינוך אחר לגמרי.</p>
     </div>
     <div class="timeline-item">
-      <h3>ניהול חינוכי <span>הובלה</span></h3>
-      <p>מעבר לתפקידי ריכוז, ניהול אזור, ניהול צוותים וניהול מערכות חינוך בלתי פורמליות. ניהול אנשים, בניית אמון והתמודדות עם משברים.</p>
+      <h3>ניהול חינוכי <span>הובלת צוותים</span></h3>
+      <p>ניהול אזורי והובלת צוותים חינוכיים. הוכחה שמנהיגות אמיתית קורה בשטח, לא ממשרד.</p>
     </div>
     <div class="timeline-item">
-      <h3>יזמות בחינוך <span>הקמה</span></h3>
-      <p>הקמת וניהול מסגרות, צהרונים, קייטנות, חוגים ותכניות חינוכיות. בניית פעילות עסקית־חינוכית מהשטח ועד ניהול מלא — שיווק, מכירות, תפעול, כספים, קשר עם רשויות.</p>
+      <h3>הקמת כפיר <span>החזון הופך למציאות</span></h3>
+      <p>הקמת כפיר — צהרונים, קייטנות והעשרה בספורט. חברה שבנויה על אמונה באנשי החינוך ונוכחות יומיומית בשטח.</p>
     </div>
     <div class="timeline-item">
-      <h3>כפיר תכניות — היום <span>הרחבה</span></h3>
-      <p>הובלת "כפיר תכניות" — צהרונים, קייטנות, העשרה בספורט לבתי ספר. הרחבה לדובאי וסין. חיבור בין אמונה, אנשים, חינוך, ניהול ויזמות.</p>
+      <h3>היום <span>התרחבות גלובלית</span></h3>
+      <p>כפיר מתרחבת לדובאי ולסין. חינוך ישראלי שחוצה גבולות — עם אותם ערכים, אותה מסירות, אותו חיוך.</p>
     </div>
   </div>
 </section>
@@ -242,39 +285,39 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
 <!-- Values -->
 <section class="values" id="values">
   <div class="section-title">
-    <h2>הערכים שמובילים אותי</h2>
+    <h2>הערכים שמנחים אותנו</h2>
     <div class="line"></div>
   </div>
   <div class="values-grid">
     <div class="value-card">
       <i class="fas fa-child"></i>
-      <h3>ראיית הילד</h3>
-      <p>חינוך מתחיל ברגע שרואים את הילד כמו שהוא — לא רק כתלמיד, אלא כאדם שלם עם עולם פנימי, חלומות ופוטנציאל.</p>
+      <h3>כל ילד נראה</h3>
+      <p>כל ילד הוא עולם שלם. התפקיד שלנו הוא לגלות את העולם הזה יחד איתו — בסבלנות, באהבה ובגובה העיניים.</p>
     </div>
     <div class="value-card">
-      <i class="fas fa-hands-helping"></i>
-      <h3>שליחות ואחריות</h3>
-      <p>חינוך הוא לא מקצוע — אלא שליחות חיים. אחריות לבנות מערכות שמגדלות ילדים, צוותים וקהילות.</p>
+      <i class="fas fa-heart"></i>
+      <h3>הצוות הוא הלב</h3>
+      <p>צוות שמח יוצר ילדים שמחים. אנחנו משקיעים באנשים שלנו כי הם אלה שמחבקים את הילדים שלכם כל יום.</p>
     </div>
     <div class="value-card">
-      <i class="fas fa-users"></i>
-      <h3>הובלת צוותים</h3>
-      <p>לקחת צוות מבולבל ולתת לו כיוון. לקחת אדם ולהראות לו שהוא מסוגל יותר. ניהול מתוך אמון והכלה.</p>
+      <i class="fas fa-shoe-prints"></i>
+      <h3>מנהיגות מהשטח</h3>
+      <p>אנחנו לא מנהלים ממשרדים. אנחנו שם — בגנים, בכיתות, בכל יום. כי חינוך אמיתי קורה רק כשאתה נוכח.</p>
     </div>
     <div class="value-card">
-      <i class="fas fa-lightbulb"></i>
-      <h3>יזמות מעשית</h3>
-      <p>לקחת רעיון ולהפוך אותו למערכת חיה. מהשטח, דרך התכנון, ועד לפעילות שעובדת יום יום.</p>
+      <i class="fas fa-handshake"></i>
+      <h3>אמונה באנשים</h3>
+      <p>אנחנו מאמינים במורים, בסייעות, בהורים. כשנותנים אמון אמיתי — קורים דברים גדולים. יחד בונים משהו שגדול מכולנו.</p>
     </div>
     <div class="value-card">
       <i class="fas fa-star-of-david"></i>
-      <h3>אמונה וזהות</h3>
-      <p>חיבור עמוק לתורה, למסורת ולעם ישראל. חינוך שמחבר בין שורשים, זהות ומשמעות.</p>
+      <h3>חינוך עם ערכים</h3>
+      <p>חינוך שמושרש בערכים, במסורת ובאהבת ישראל. בית יהודי חם לכל ילד — עם שורשים עמוקים וכנפיים פתוחות.</p>
     </div>
     <div class="value-card">
       <i class="fas fa-globe"></i>
-      <h3>חשיבה גלובלית</h3>
-      <p>חינוך ישראלי ויהודי שחוצה גבולות. הרחבת הפעילות לדובאי ולסין מתוך אמונה בחינוך אוניברסלי.</p>
+      <h3>חזון לעתיד</h3>
+      <p>מישראל לעולם. חינוך שחוצה גבולות עם רוח ישראלית וחדשנות. כי ילדים בכל מקום ראויים למיטב.</p>
     </div>
   </div>
 </section>
@@ -282,9 +325,42 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
 <!-- Quote -->
 <section class="quote-section">
   <blockquote>
-    החיים שלי הם מסע של חינוך: להיות מורה, להיות מדריך, להיות שליח, להיות יזם — ובעיקר, להיות אדם שמאמין באנשים, בילדים, בצוותים וביכולת שלהם לגדול.
+    כשילד מחייך בגן — זה לא קורה במקרה. מאחורי כל חיוך יש צוות שמאמין, מנהל שנמצא בשטח, והורים שסומכים. זו השליחות שלנו.
   </blockquote>
   <cite>— אמיתי לוי</cite>
+</section>
+
+<!-- Media -->
+<section class="media-section" id="media">
+  <div class="section-title">
+    <h2>בתקשורת ובמדיה</h2>
+    <div class="line"></div>
+  </div>
+  <div class="media-grid">
+    <div class="media-article" onclick="openArticleModal()">
+      <div class="article-icon"><i class="fas fa-newspaper"></i></div>
+      <div class="article-content">
+        <h3>ראיון מיוחד: הדרך של אמיתי לוי מאחיעזר לחזית החינוך</h3>
+        <div class="article-source"><i class="fas fa-calendar-alt"></i> עיתון Talk | סיוון תשפ"ו</div>
+        <p class="article-excerpt">ראיון מקיף על הדרך ממושב אחיעזר למנהיגות חינוכית בישראל. על שליחות במלבורן, הקמת כפיר, ועל גישה שמעמידה את אנשי השטח במרכז — ואת הילדים מעל הכל.</p>
+      </div>
+    </div>
+    <div class="media-video">
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+      <h4>סטורי: המסר שלי להורים</h4>
+      <p>בקרוב</p>
+    </div>
+    <div class="media-video">
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+      <h4>מאחורי הקלעים: יום בשטח</h4>
+      <p>בקרוב</p>
+    </div>
+    <div class="media-video">
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+      <h4>הסיפור של בנג'י מאוסטרליה</h4>
+      <p>בקרוב</p>
+    </div>
+  </div>
 </section>
 
 <!-- Services -->
@@ -297,43 +373,43 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
     <div class="service-card">
       <div class="icon-wrap"><i class="fas fa-school"></i></div>
       <div>
-        <h3>צהרונים ומסגרות חינוכיות</h3>
-        <p>הקמה, ניהול והובלת צהרונים ומסגרות חינוכיות לילדים, עם דגש על איכות חינוכית, בטיחות וקשר עם הורים.</p>
+        <h3>צהרונים — בית חם אחרי הלימודים</h3>
+        <p>מסגרת חינוכית אמיתית שממשיכה את היום בחום ובביטחון. צוות שמאמין, סביבה בטוחה, והורים שקטים בנפש.</p>
       </div>
     </div>
     <div class="service-card">
       <div class="icon-wrap"><i class="fas fa-sun"></i></div>
       <div>
-        <h3>קייטנות וחופשות</h3>
-        <p>תכנון והפעלת קייטנות בחופשות — חוויות חינוכיות, ספורטיביות וחברתיות לילדים ונוער.</p>
+        <h3>קייטנות — חוויות של שמחה וצמיחה</h3>
+        <p>ימי חופש מלאים בהרפתקאות, יצירה וספורט. ילדים שרוצים לחזור, הורים שיודעים שהילדים בידיים טובות.</p>
       </div>
     </div>
     <div class="service-card">
       <div class="icon-wrap"><i class="fas fa-futbol"></i></div>
       <div>
-        <h3>העשרה בספורט לבתי ספר</h3>
-        <p>תכניות העשרה ספורטיביות לבתי ספר — חינוך גופני, חוגים ופעילויות שמחזקות גוף ונפש.</p>
+        <h3>העשרה בספורט — בונים גוף ורוח</h3>
+        <p>תכניות ספורט שמחנכות לביטחון עצמי, עבודת צוות וחברות. תנועה שמחנכת — לא רק מאמנת.</p>
       </div>
     </div>
     <div class="service-card">
       <div class="icon-wrap"><i class="fas fa-chalkboard-teacher"></i></div>
       <div>
-        <h3>הדרכה וליווי צוותים</h3>
-        <p>הדרכת צוותים חינוכיים, ליווי מנהלים ומדריכים, בניית תרבות ארגונית חינוכית ופיתוח מקצועי.</p>
+        <h3>ליווי צוותים — משקיעים במי שמשקיע בילדים</h3>
+        <p>הכשרה, חיזוק וליווי של צוותים חינוכיים. כי כשהצוות חזק ושמח — הילדים פורחים.</p>
       </div>
     </div>
     <div class="service-card">
       <div class="icon-wrap"><i class="fas fa-rocket"></i></div>
       <div>
-        <h3>יזמות חינוכית</h3>
-        <p>ייעוץ, הקמה וליווי של מיזמים חינוכיים — מרעיון ראשוני ועד למערכת חיה ופועלת.</p>
+        <h3>יזמות חינוכית — בונים מסגרות חדשות מהיסוד</h3>
+        <p>מהרעיון ועד למציאות חיה ונושמת. הקמת מיזמים חינוכיים שמשנים קהילות מבפנים.</p>
       </div>
     </div>
     <div class="service-card">
       <div class="icon-wrap"><i class="fas fa-plane"></i></div>
       <div>
-        <h3>פעילות בינלאומית</h3>
-        <p>הרחבת הפעילות החינוכית לשווקים בינלאומיים — דובאי, סין ועוד. חינוך ישראלי שחוצה גבולות.</p>
+        <h3>פעילות בינלאומית — חינוך ישראלי שמעורר השראה בעולם</h3>
+        <p>מישראל לדובאי ולסין. רוח ישראלית, ערכים אוניברסליים, והוכחה שחינוך טוב חוצה גבולות.</p>
       </div>
     </div>
   </div>
@@ -348,14 +424,14 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
   <div class="contact-grid">
     <div class="contact-info">
       <h3>בואו נדבר</h3>
-      <p>מעוניינים בשיתוף פעולה, הרצאה, ייעוץ או סתם לשמוע עוד? אשמח לשמוע מכם.</p>
+      <p>רוצים לשמוע עוד? רוצים להצטרף למהפכה? נשמח לדבר.</p>
       <div class="info-item">
         <i class="fas fa-envelope"></i>
         <span>amitai3386@gmail.com</span>
       </div>
       <div class="info-item">
         <i class="fas fa-building"></i>
-        <span>כפיר תכניות — אמיתי לוי יזמות בע״מ</span>
+        <span>כפיר פרויקטים בחינוך — אמיתי לוי יזמות בע״מ</span>
       </div>
       <div class="info-item">
         <i class="fas fa-map-marker-alt"></i>
@@ -380,9 +456,38 @@ footer .footer-logo{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:va
 
 <!-- Footer -->
 <footer>
-  <div class="footer-logo">אמיתי לוי — חינוך | יזמות | שליחות</div>
-  <p>&copy; 2026 כל הזכויות שמורות | אמיתי לוי יזמות בע״מ</p>
+  <div class="footer-logo">כפיר פרויקטים בחינוך — אמיתי לוי יזמות בע״מ</div>
+  <p>מחזירים את החיוך לחינוך</p>
+  <p>&copy; 2026</p>
 </footer>
+
+<!-- Article Modal -->
+<div class="modal-overlay" id="articleModal" onclick="if(event.target===this)closeArticleModal()">
+<div class="modal-content">
+<button class="modal-close" onclick="closeArticleModal()">&times;</button>
+<div class="modal-header">
+<div class="modal-source">ראיון בלעדי | עיתון Talk | סיוון תשפ״ו</div>
+<h2>"הבלוף של התעשייה נחשף: המשרד שלי הוא אשכולות הגנים, והסייעת היא המלכה"</h2>
+<p class="modal-subtitle">אמיתי לוי, יזם חינוכי חברתי, בעלים של חברת כפיר צהרונים, בוגר ישיבת "מורשת יעקב" ובעל תואר ראשון ותעודת הוראה, בראיון בלעדי לעיתון Talk.</p>
+</div>
+
+<div class="modal-qa"><p class="q">אמיתי, איך מורה לתושב"ע מגיע ליזמות בחינוך ותפעול של מאות עובדים? איפה הכל התחיל?</p><p class="a">זה מתחיל מהשורשים. גדלתי במושב אחיעזר, במשפחה של רבנים, מורים ואנשי הוראה. דוד שלי הוא רבה של המועצה האזורית שדות דן, דוד מרדכי (המנטור שלי) הוא מנהל תלמוד תורה, וסבא שלי זצ"ל היה רב בית הכנסת ומנהיג קהילה. כל הסביבה שבה צמחתי וגדלתי מורכבת מאנשי חינוך. לעסוק בצורכי ציבור – ללמוד וללמד - זה טבעי מהבית. משם היה ברור שאני ממשיך את המסורת ופונה לתואר ראשון בהוראה. אני בוגר ישיבת ההסדר 'מורשת יעקב', שהיא מבחינתי החממה ובית גידול ייחודי למנהלי ומחנכי ישראל. המעבר ליזמות נולד מהרצון לקחת את הערכים בחינוך שאני מוביל ועליהם גדלתי, ולהטמיע אותם במערכות גדולות. ערך הנתינה והחסד – לראות כל אדם ולהאמין בכל אחד, למצוא את הטוב והיכולת למימוש עצמי בכל איש חינוך בשטח. לעבוד עם הלב מול הצוותים החינוכיים לראות אותם ממש, את הקושי והאתגר שיש בכל קבוצת גן או כיתה. גם מורה, גננת וסייעת, צריכה מבוגר שיאמין בה, ינחה אותה ויחזק אותה.</p></div>
+
+<div class="modal-qa"><p class="q">משם הגעת לשליחות באוסטרליה. המיונים לשם קשים, בטח כשיש את מחסום השפה. איך צלחת את זה?</p><p class="a">(חיוך עולה על פניו של אמיתי) אתה שואל איך ילד תימני מאחיעזר מגיע פתאום לקצה השני של העולם? המיונים לשליחות היו באמת אינטנסיביים, והיה גם אתגר עם האנגלית. לשמחתי, הקהילה במלבורן מאוד חזקה, מחוברת וציונית. היה להם חשוב הידע התורני שלי, הוורבליות בדברי תורה, הצבע שאני מביא לשיעור והיכולת שלי למשוך את התלמידים, לרתק אותם ולדבר איתם על יהדות מהלב.</p></div>
+
+<div class="modal-qa"><p class="q">היה מישהו שהאמין בך כשלא כולם ראו?</p><p class="a">אומרים ש'כל ילד צריך מבוגר אחד שיאמין בו'. אצלי זו לא קלישאה – זו המציאות שלי. כשיצאתי למיונים, היה רב אחד שנלחם עליי, האמין בי ואמר לי: 'הם חייבים את הידע התורני והאנרגיה שלך'. הוא ראה בי את מה שלא כולם ראו. את הגישה הזו אני מיישם היום ב'כפיר צהרונים'. הצוותים שלי צריכים שאני אאמין בהם. כשאני מאמין בצוות ונותן לו גב אמיתי, הוא יכול לייצר אקלים חינוכי מדהים עבור הילדים.</p></div>
+
+<div class="modal-qa"><p class="q">מה היה הרגע המכונן עבורך שם בשליחות?</p><p class="a">הרגע המרגש ביותר היה כשפתאום נכנס גבר בן 24 לבית המדרש ואמר לי: 'שלום, גיליתי אתמול שאני יהודי. מה זה אומר?' ואתה פשוט מתחיל איתו מהתחלה... מודה אני, נטילת ידיים, שלושה אבות, ארבע אימהות. מי זה רש"י? ורבי עקיבא? לעמוד שם ולראות מישהו מגלה את הזהות שלו דרכך – זה רגע שמרעיד אותך. עד היום אני ובנג'י חברים טובים. ב-7 באוקטובר הוא היה הראשון שהתקשר אליי.</p></div>
+
+<div class="modal-qa"><p class="q">מה השיעור הניהולי הגדול שהבאת מאוסטרליה ל"כפיר צהרונים" בארץ?</p><p class="a">חזרתי משם עם אמונה בוערת שאפשר וצריך אחרת. את התפנית המשמעותית עברתי ב'מלבורן יבנה', שם ראיתי שאפשר להתייחס אחרת לגמרי לאנשי החינוך, והבנתי שזה מתחיל בנו, המנהלים. היחס שלנו לצוות הוא זה שעובר הלאה להורים ולילדים. כשסייעת שמחה הילד שמח, וכשהיא עצובה – הילד עצוב. לכן הגעתי לעשות תיקון: אצלנו הסייעת היא המלכה. היא האמא והלב של הצהרון.</p></div>
+
+<div class="modal-qa"><p class="q">מכל תחומי החינוך, בחרת להיכנס דווקא לעין הסערה של הצהרונים. מה אנחנו לא יודעים על המערכת?</p><p class="a">דבר שלא יודעים.. הוא הבלוף שמוכרים לרשויות אשליה. מנהל אגף חינוך חותם מול חברה, ואז הבעלים נעלם למשרד הממוזג ושולח רכזים לשטח. אני מסרב לשבת במשרד עם המזגן. המשרד שלי הוא אשכולות הגנים. חינוך זה כאן ועכשיו, פתרון בעיות בזמן אמת. אני הרמטכ"ל שנמצא בחוד החנית כדי לתת דוגמה אישית, ולא במגדל השן. בזכות אשתי מירי לוי, עורכת דין עם תואר שני שמנהלת את המשרד, השכר, הספקים והביטוחים ביד רמה – אני פנוי להיות 100% בשטח. ב-1 ביולי, בשיא החום, אני מסייר מ-7:00 עד 16:00, עובר גן-גן וכיתה-כיתה כדי לתקן ולדייק בזמן אמת.</p></div>
+
+<div class="modal-qa"><p class="q">לסיום, איזה טיפ יש לך להורה שבוחן צהרון לילד שלו?</p><p class="a">אל תסתכלו רק על הפרוספקט. תסתכלו לצוות בעיניים. שידוך בין גננת לסייעת הוא קריטי; אם אין כימיה והן לא מגובשות, הילדים ירגישו את זה מיד וזה יבוא על חשבונם. חיבור וגיבוש הצוות הוא חובה להצלחת הגן ושמחת הילדים. אם יש מנהל שחי את השטח ולוקח אחריות אישית על כל שידוך וכל חיוך – אתם יכולים לישון בשקט.</p></div>
+
+<div class="modal-closing-quote">השליחות שלי היא להחזיר את הנשמה למערכת, כי חינוך לא עושים מהמשרד. עושים אותו דרך הרגליים, עם הלב, ובגובה העיניים של הצוותים, ההורים והילדים.</div>
+</div>
+</div>
 
 <script>
 window.addEventListener('scroll',()=>{
@@ -395,6 +500,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     document.getElementById('navLinks').classList.remove('active')
   })
 })
+const modal=document.getElementById('articleModal')
+function openArticleModal(){modal.classList.add('active');document.body.classList.add('modal-open')}
+function closeArticleModal(){modal.classList.remove('active');document.body.classList.remove('modal-open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticleModal()})
 </script>
 </body>
 </html>
