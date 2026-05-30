@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V5b: Trump method. Name=brand. Massive. Few words. Gold on white. Stars."""
+"""V5c: TRUMP ENERGY. Raw. Aggressive. Slogan. ALL CAPS feel. Meme-grade."""
 from PIL import Image, ImageDraw, ImageFont
 from bidi.algorithm import get_display as bidi
 import os, math
@@ -9,104 +9,76 @@ OUT = os.path.dirname(os.path.abspath(__file__))
 FONTS = "/tmp/heebo-fonts"
 f = lambda w, s: ImageFont.truetype(f"{FONTS}/heebo-{w}.ttf", s)
 
-WHITE = (255,255,255); BLACK = (15,15,15); GOLD = (218,175,50)
-DARKGOLD = (180,140,30); LIGHTGOLD = (255,240,180)
-GRAY = (160,160,160)
+WHITE = (255,255,255); BLACK = (10,10,10); GOLD = (220,180,40)
+DARKGOLD = (180,145,25); OFFWHITE = (250,248,242)
 
 def tc(d, text, y, fnt, fill, w=W):
     bb = d.textbbox((0,0), text, font=fnt)
     d.text(((w-bb[2]+bb[0])//2, y), text, font=fnt, fill=fill)
 
-def star(d, cx, cy, r, fill):
-    """5-point star"""
-    pts = []
-    for i in range(10):
-        a = math.pi/2 + i * math.pi/5
-        rad = r if i%2==0 else r*0.4
-        pts.append((cx+rad*math.cos(a), cy-rad*math.sin(a)))
-    d.polygon(pts, fill=fill)
-
-def name_badge(d, y):
-    """Trump-style name in box with stars"""
-    bw, bh = 700, 90
-    bx = (W-bw)//2
-    # Box
-    d.rectangle([bx, y, bx+bw, y+bh], fill=GOLD)
-    # Name
-    d.text((W//2, y+bh//2), bidi("אמיתי לוי"), font=f(900,52), fill=WHITE, anchor="mm")
-    # 5 stars above
-    for i in range(5):
-        sx = bx + 100 + i * 130
-        star(d, sx, y-25, 14, GOLD)
-    # Subtitle below
-    d.text((W//2, y+bh+20), bidi("מחנך · יזם · שליח"), font=f(300,22), fill=GRAY, anchor="mm")
-    d.text((W//2, y+bh+50), "amitailevi.com", font=f(700,18), fill=DARKGOLD, anchor="mm")
+def slogan_bar(d, y=H-100):
+    """Repeating slogan — like MAGA. Every post."""
+    d.rectangle([0, y, W, H], fill=BLACK)
+    d.rectangle([0, y, W, y+4], fill=GOLD)
+    d.text((W//2, y+28), bidi("חינוך עושים בשטח."), font=f(900,38), fill=GOLD, anchor="mm")
+    d.text((W//2, y+72), bidi("אמיתי לוי | amitailevi.com"), font=f(300,20), fill=(120,120,120), anchor="mm")
 
 # ══════════════════════════════════════
-# 01: "בגן ב-7 בבוקר" — billboard style
+# 01: The provocation — "כולם מדברים"
 # ══════════════════════════════════════
 def p01():
     img = Image.new("RGB", (W,H), WHITE)
     d = ImageDraw.Draw(img)
-    # Gold top bar
-    d.rectangle([0,0,W,16], fill=GOLD)
-    # One statement. Massive.
-    tc(d, bidi("בגן."), 100, f(900,180), BLACK)
-    tc(d, bidi("ב-7 בבוקר."), 300, f(900,120), GOLD)
-    # Thin gold line
-    d.rectangle([300, 460, 780, 464], fill=GOLD)
-    # Short punch
-    tc(d, bidi("כל יום. כבר עשור."), 500, f(700,40), BLACK)
-    tc(d, bidi("בזמן שאחרים עוד ישנים."), 560, f(400,32), GRAY)
-    # Badge
-    name_badge(d, 740)
-    # Bottom bar
-    d.rectangle([0,H-16,W,H], fill=GOLD)
+    # No decoration. Just words hitting you.
+    tc(d, bidi("כולם"), 60, f(900,140), (200,200,200))
+    tc(d, bidi("מדברים."), 210, f(900,140), (200,200,200))
+    # The counter
+    tc(d, bidi("אני"), 430, f(900,140), BLACK)
+    tc(d, bidi("נכנס"), 580, f(900,140), GOLD)
+    tc(d, bidi("לגן."), 730, f(900,140), BLACK)
+    slogan_bar(d)
     return img
 
 # ══════════════════════════════════════
-# 02: "612" — one number, one fact
+# 02: The number — raw power
 # ══════════════════════════════════════
 def p02():
     img = Image.new("RGB", (W,H), WHITE)
     d = ImageDraw.Draw(img)
-    d.rectangle([0,0,W,16], fill=GOLD)
-    # MASSIVE number
-    tc(d, "612", 30, f(900,350), BLACK)
-    # Gold underline
-    d.rectangle([200, 400, 880, 406], fill=GOLD)
-    # One line
-    tc(d, bidi("ילדים. קייטנה אחת. בחירה אחת."), 430, f(900,40), BLACK)
-    # Cheeky line
-    d.rounded_rectangle([180, 530, W-180, 610], 16, fill=LIGHTGOLD)
-    tc(d, bidi("גם מספר המצוות. צירוף מקרים? 😏"), 550, f(700,30), DARKGOLD)
-    # Badge
-    name_badge(d, 740)
-    d.rectangle([0,H-16,W,H], fill=GOLD)
+    # Number SO big it barely fits
+    d.text((W//2, 20), "612", font=f(900,400), fill=BLACK, anchor="mt")
+    # One line under
+    d.rectangle([150, 440, 930, 446], fill=GOLD)
+    tc(d, bidi("ילדים."), 470, f(900,80), BLACK)
+    tc(d, bidi("קייטנה אחת."), 570, f(900,60), GOLD)
+    tc(d, bidi("שואלים למה? תשאלו את ההורים."), 680, f(400,30), (150,150,150))
+    slogan_bar(d)
     return img
 
 # ══════════════════════════════════════
-# 03: "לא המדרש" — quote as brand
+# 03: Chazal — raw and sharp
 # ══════════════════════════════════════
 def p03():
-    img = Image.new("RGB", (W,H), WHITE)
+    img = Image.new("RGB", (W,H), BLACK)
     d = ImageDraw.Draw(img)
-    d.rectangle([0,0,W,16], fill=GOLD)
-    # Big bold quote — fewer words
-    tc(d, bidi("דיבורים?"), 100, f(900,120), GRAY)
-    tc(d, bidi("תעזוב."), 240, f(900,140), BLACK)
-    # Gold line
-    d.rectangle([250, 410, 830, 416], fill=GOLD)
-    # Action
-    tc(d, bidi("תיכנס לגן."), 450, f(900,100), GOLD)
-    # Small source
-    tc(d, bidi("— פרקי אבות, בתרגום שלי"), 580, f(300,24), GRAY)
-    # Badge
-    name_badge(d, 740)
-    d.rectangle([0,H-16,W,H], fill=GOLD)
+    # White on black — dramatic
+    tc(d, bidi("חז״ל אמרו"), 50, f(300,30), (60,60,60))
+    tc(d, bidi("לא המדרש"), 120, f(900,100), WHITE)
+    tc(d, bidi("אלא"), 240, f(900,100), (60,60,60))
+    tc(d, bidi("המעשה."), 360, f(900,120), GOLD)
+    # Sharp divider
+    d.rectangle([200, 510, 880, 514], fill=GOLD)
+    # The translation
+    tc(d, bidi("אני תרגמתי:"), 550, f(400,30), (80,80,80))
+    tc(d, bidi("תפסיק"), 610, f(900,90), WHITE)
+    tc(d, bidi("לדבר."), 720, f(900,90), GOLD)
+    # Slogan bar
+    d.rectangle([0, H-100, W, H], fill=GOLD)
+    d.rectangle([0, H-100, W, H-96], fill=WHITE)
+    d.text((W//2, H-72), bidi("חינוך עושים בשטח."), font=f(900,38), fill=BLACK, anchor="mm")
+    d.text((W//2, H-28), bidi("אמיתי לוי | amitailevi.com"), font=f(300,20), fill=(100,80,10), anchor="mm")
     return img
 
-# ─── Generate ───
 for name, func in [
     ("test-01.png", p01),
     ("test-02.png", p02),
@@ -116,4 +88,4 @@ for name, func in [
     path = f"{OUT}/{name}"
     img.save(path, "PNG", optimize=True)
     print(f"  {name} ({os.path.getsize(path)//1024}KB)")
-print("\nV5b — Trump method. 3 posts.")
+print("\nV5c — Trump energy.")
