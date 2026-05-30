@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פוסטים שבוע 1 | אמיתי לוי</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4VY1G75TQE"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4VY1G75TQE');</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Heebo',sans-serif;background:#0d1b2a;color:#fff;min-height:100vh}
+.header{text-align:center;padding:40px 20px 10px}
+.header h1{font-size:28px;font-weight:900;color:#d4a843}
+.header p{font-size:16px;color:rgba(255,255,255,.6);margin-top:8px}
+.back{display:inline-block;margin-top:12px;color:#d4a843;text-decoration:none;font-size:14px;opacity:.7;transition:opacity .2s}
+.back:hover{opacity:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:20px;max-width:1100px;margin:0 auto}
+.card{background:#1a3a5c;border-radius:12px;overflow:hidden}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.card-body{padding:14px 16px}
+.card-body h3{font-size:16px;font-weight:700;color:#d4a843;margin-bottom:6px}
+.card-body p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;max-height:80px;overflow:hidden}
+.card a.dl{display:block;padding:12px;background:#d4a843;color:#fff;font-weight:700;font-size:15px;text-decoration:none;text-align:center;transition:background .2s}
+.card a.dl:hover{background:#c49a38}
+.caption-section{max-width:800px;margin:40px auto;padding:0 20px}
+.caption-section h2{font-size:22px;font-weight:900;color:#d4a843;text-align:center;margin-bottom:20px}
+.cap{background:#1a3a5c;border-radius:10px;padding:20px;margin-bottom:16px}
+.cap h4{color:#d4a843;font-size:15px;margin-bottom:8px}
+.cap pre{white-space:pre-wrap;font-family:'Heebo',sans-serif;font-size:14px;color:rgba(255,255,255,.8);line-height:1.7;direction:rtl}
+.cap button{margin-top:10px;background:none;border:1px solid #d4a843;color:#d4a843;padding:6px 16px;border-radius:6px;cursor:pointer;font-family:'Heebo',sans-serif;font-size:13px;transition:all .2s}
+.cap button:hover{background:#d4a843;color:#fff}
+.cap button.copied{background:#27ae60;border-color:#27ae60;color:#fff}
+.tip{text-align:center;padding:30px 20px;color:rgba(255,255,255,.5);font-size:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>תיק תוכן — שבוע 1</h1>
+  <p>10 פוסטים + טקסטים להורדה</p>
+  <a href="/" class="back">← חזרה לאתר</a>
+</div>
+<div class="grid" id="grid"></div>
+
+<div class="caption-section">
+  <h2>טקסטים להעתקה</h2>
+  <div id="captions"></div>
+</div>
+
+<div class="tip">💡 בנייד: לחיצה ארוכה על התמונה → "שמור תמונה"<br>💡 במחשב: לחצו על כפתור ההורדה</div>
+
+<script>
+const posts=[
+{n:"01",file:"01-sunday-thanks.png",title:"תודה על הגל",caption:`תודה. פשוט תודה.
+
+השבוע השקנו אתר, פרסמנו כתבה בעיתון Talk, וקיבלנו אהבה שלא ציפיתי לה.
+הודעות, שיתופים, טלפונים מאנשים שלא דיברתי איתם שנים.
+
+אז למה? כי יש פה משהו אמיתי.
+לא קמפיין. לא שיווק. סיפור של בן אדם שמאמין בחינוך.
+
+זו רק ההתחלה. 💛
+
+📖 הכתבה המלאה: amitailevi.com/article
+🌐 האתר: amitailevi.com`},
+{n:"02",file:"02-monday-quote.png",title:"ציטוט חינוכי",caption:`חינוך לא עושים מהמשרד.
+עושים אותו דרך הרגליים.
+
+ב-1 ביולי, בשיא החום, אני מסייר מ-7:00 עד 16:00.
+גן-גן. כיתה-כיתה. בודק, מתקן, מחזק.
+
+כי מי שלא בשטח — לא באמת מוביל.
+
+🌐 amitailevi.com`},
+{n:"03",file:"03-tuesday-bts.png",title:"מאחורי הקלעים",caption:`07:00 בבוקר. אני כבר באשכולות הגנים.
+
+יש מנהלים שנעלמים למשרד הממוזג ושולחים רכזים.
+אני מסרב. המשרד שלי הוא הגנים.
+
+הרמטכ"ל נמצא בחוד החנית, לא במגדל השן.
+זו הגישה שלי. זו הדרך של כפיר.
+
+💡 טיפ: שאלו את עצמכם — מתי בפעם האחרונה ראיתם את הבעלים של הצהרון בשטח?
+
+🌐 amitailevi.com`},
+{n:"04",file:"04-wednesday-benji.png",title:"הסיפור של בנג׳י",caption:`הסיפור הזה משנה לי את הנשימה כל פעם מחדש.
+
+שליחות במלבורן, אוסטרליה. בן 24 נכנס לבית המדרש ואמר: "גיליתי אתמול שאני יהודי. מה זה אומר?"
+
+התחלנו מאפס. מודה אני, נטילת ידיים, שלושה אבות, ארבע אימהות.
+לראות מישהו מגלה את הזהות שלו דרכך — זה רגע שמרעיד אותך.
+
+עד היום אנחנו חברים. ב-7 באוקטובר הוא היה הראשון שהתקשר.
+
+📖 הראיון המלא: amitailevi.com/article`},
+{n:"05",file:"05-thursday-tip.png",title:"טיפ להורים",caption:`הורים, לקראת הקיץ — שאלה אחת שתגיד לכם הכל:
+
+🔍 תסתכלו לצוות בעיניים.
+
+שידוך בין גננת לסייעת הוא קריטי. אם אין כימיה והן לא מגובשות — הילדים ירגישו את זה מיד.
+
+✅ חיבור וגיבוש הצוות = הצלחת הגן
+✅ מנהל שחי את השטח = הורים שישנים בשקט
+
+אל תסתכלו רק על הפרוספקט. תסתכלו על האנשים.
+
+💬 מתוך ראיון בעיתון Talk
+📖 amitailevi.com/article`},
+{n:"06",file:"06-friday-shabbat.png",title:"שבת שלום",caption:`שבוע ראשון אחרי ההשקה.
+שבוע של אהבה, חיבורים, ותחילת דרך.
+
+מחזירים את החיוך לחינוך. 💛
+
+שבת שלום לכולם 🕯️
+
+🌐 amitailevi.com`},
+{n:"07",file:"07-system-launch.png",title:"המערכת החדשה",caption:`72 שעות. 184 משפחות. מערכת הרשמה חדשה.
+
+הורה נכנס, בוחר צהרון, משלם — וסוגר הכל ב-5 דקות מהסלון.
+בלי טפסים, בלי טלפונים, בלי לחכות.
+
+שיא יומי: 138 הרשמות ביום אחד.
+שיא שעתי: 36 הרשמות בשעה אחת.
+
+זה מה שקורה כשמתייחסים להורים כלקוחות — לא כמספרים.
+
+🌐 kfir-p.co.il
+🌐 amitailevi.com`},
+{n:"08",file:"08-passover-camp.png",title:"קייטנת פסח",caption:`612 ילדים. קייטנת פסח תשפ״ו.
+4 בתי ספר. 6 ישובים. 30+ גנים.
+
+מועצה אזורית באר טוביה בחרה בכפיר צהרונים — וההורים הצביעו ברגליים.
+
+זה לא מבצע שיווקי. זה אמון.
+אמון שנבנה שנה אחרי שנה, גן אחרי גן.
+
+💛 כפיר צהרונים
+🌐 amitailevi.com`},
+{n:"09",file:"09-regina.png",title:"ד״ר רגינה חסון",caption:`מינוי חדש בכפיר צהרונים:
+ד״ר רגינה חסון — מנהלת פדגוגית.
+
+כי חינוך מתחיל מלמעלה.
+ניהול פדגוגי מקצועי, בגובה העיניים של הצוותים.
+
+כשיש מנהלת פדגוגית ברמה הזו — הגננות מרגישות את זה, והילדים מרגישים את זה.
+
+🌐 amitailevi.com`},
+{n:"10",file:"10-team.png",title:"הצוות",caption:`הצוות שמאחורי ההצלחה:
+
+מירי לוי — עו״ד, מנהלת המשרד
+מרים כוכב — מנהלת כספים ורישום
+שלומית צוקר — מנהלת משאבי אנוש
+ד״ר רגינה חסון — מנהלת פדגוגית
+
+בלעדיהן — אין קייטנה, אין צהרון, אין חינוך.
+
+תודה על המסירות. תודה על הכל. 💛
+
+🌐 amitailevi.com`}
+];
+
+const grid=document.getElementById('grid');
+const caps=document.getElementById('captions');
+
+posts.forEach(p=>{
+  grid.innerHTML+=`<div class="card"><img src="${p.file}" alt="${p.title}" loading="lazy"><div class="card-body"><h3>${p.n} — ${p.title}</h3><p>${p.caption.split('\n')[0]}</p></div><a class="dl" href="${p.file}" download>${p.title} ⬇️</a></div>`;
+  caps.innerHTML+=`<div class="cap"><h4>${p.n} — ${p.title}</h4><pre>${p.caption}</pre><button onclick="copyCaption(this,'${p.n}')">העתק טקסט 📋</button></div>`;
+});
+
+function copyCaption(btn,n){
+  const post=posts.find(p=>p.n===n);
+  navigator.clipboard.writeText(post.caption).then(()=>{
+    btn.textContent='הועתק! ✓';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='העתק טקסט 📋';btn.classList.remove('copied')},2000);
+  });
+}
+</script>
+</body>
+</html>
