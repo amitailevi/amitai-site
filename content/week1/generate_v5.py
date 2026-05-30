@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""V5c: TRUMP ENERGY. Raw. Aggressive. Slogan. ALL CAPS feel. Meme-grade."""
+"""V5d: PRESIDENT. No kindergartens. Big vision. Winner. Leader."""
 from PIL import Image, ImageDraw, ImageFont
 from bidi.algorithm import get_display as bidi
-import os, math
+import os
 
 W, H = 1080, 1080
 OUT = os.path.dirname(os.path.abspath(__file__))
@@ -10,82 +10,62 @@ FONTS = "/tmp/heebo-fonts"
 f = lambda w, s: ImageFont.truetype(f"{FONTS}/heebo-{w}.ttf", s)
 
 WHITE = (255,255,255); BLACK = (10,10,10); GOLD = (220,180,40)
-DARKGOLD = (180,145,25); OFFWHITE = (250,248,242)
 
 def tc(d, text, y, fnt, fill, w=W):
     bb = d.textbbox((0,0), text, font=fnt)
     d.text(((w-bb[2]+bb[0])//2, y), text, font=fnt, fill=fill)
 
-def slogan_bar(d, y=H-100):
-    """Repeating slogan — like MAGA. Every post."""
-    d.rectangle([0, y, W, H], fill=BLACK)
-    d.rectangle([0, y, W, y+4], fill=GOLD)
-    d.text((W//2, y+28), bidi("חינוך עושים בשטח."), font=f(900,38), fill=GOLD, anchor="mm")
-    d.text((W//2, y+72), bidi("אמיתי לוי | amitailevi.com"), font=f(300,20), fill=(120,120,120), anchor="mm")
+def brand(d):
+    d.rectangle([0, H-80, W, H], fill=BLACK)
+    d.rectangle([0, H-80, W, H-76], fill=GOLD)
+    d.text((W//2, H-50), bidi("אמיתי לוי"), font=f(900,32), fill=GOLD, anchor="mm")
 
 # ══════════════════════════════════════
-# 01: The provocation — "כולם מדברים"
+# 01: "אמרו שזה בלתי אפשרי"
 # ══════════════════════════════════════
 def p01():
     img = Image.new("RGB", (W,H), WHITE)
     d = ImageDraw.Draw(img)
-    # No decoration. Just words hitting you.
-    tc(d, bidi("כולם"), 60, f(900,140), (200,200,200))
-    tc(d, bidi("מדברים."), 210, f(900,140), (200,200,200))
-    # The counter
-    tc(d, bidi("אני"), 430, f(900,140), BLACK)
-    tc(d, bidi("נכנס"), 580, f(900,140), GOLD)
-    tc(d, bidi("לגן."), 730, f(900,140), BLACK)
-    slogan_bar(d)
+    tc(d, bidi("אמרו"), 80, f(900,130), (190,190,190))
+    tc(d, bidi("שזה בלתי"), 220, f(900,130), (190,190,190))
+    tc(d, bidi("אפשרי."), 370, f(900,130), (190,190,190))
+    d.rectangle([200, 530, 880, 536], fill=GOLD)
+    tc(d, bidi("עשיתי."), 570, f(900,160), BLACK)
+    brand(d)
     return img
 
 # ══════════════════════════════════════
-# 02: The number — raw power
+# 02: "4 ערים. מנדט."
 # ══════════════════════════════════════
 def p02():
     img = Image.new("RGB", (W,H), WHITE)
     d = ImageDraw.Draw(img)
-    # Number SO big it barely fits
-    d.text((W//2, 20), "612", font=f(900,400), fill=BLACK, anchor="mt")
-    # One line under
-    d.rectangle([150, 440, 930, 446], fill=GOLD)
-    tc(d, bidi("ילדים."), 470, f(900,80), BLACK)
-    tc(d, bidi("קייטנה אחת."), 570, f(900,60), GOLD)
-    tc(d, bidi("שואלים למה? תשאלו את ההורים."), 680, f(400,30), (150,150,150))
-    slogan_bar(d)
+    d.text((W//2, 50), "4", font=f(900,400), fill=BLACK, anchor="mt")
+    d.rectangle([200, 460, 880, 466], fill=GOLD)
+    tc(d, bidi("ערים בחרו בי."), 490, f(900,80), BLACK)
+    tc(d, bidi("לא ביקשתי. לא התחנפתי."), 610, f(400,30), (150,150,150))
+    tc(d, bidi("הם ראו תוצאות."), 660, f(700,36), GOLD)
+    brand(d)
     return img
 
 # ══════════════════════════════════════
-# 03: Chazal — raw and sharp
+# 03: Chazal — presidential
 # ══════════════════════════════════════
 def p03():
     img = Image.new("RGB", (W,H), BLACK)
     d = ImageDraw.Draw(img)
-    # White on black — dramatic
-    tc(d, bidi("חז״ל אמרו"), 50, f(300,30), (60,60,60))
-    tc(d, bidi("לא המדרש"), 120, f(900,100), WHITE)
-    tc(d, bidi("אלא"), 240, f(900,100), (60,60,60))
-    tc(d, bidi("המעשה."), 360, f(900,120), GOLD)
-    # Sharp divider
-    d.rectangle([200, 510, 880, 514], fill=GOLD)
-    # The translation
-    tc(d, bidi("אני תרגמתי:"), 550, f(400,30), (80,80,80))
-    tc(d, bidi("תפסיק"), 610, f(900,90), WHITE)
-    tc(d, bidi("לדבר."), 720, f(900,90), GOLD)
-    # Slogan bar
-    d.rectangle([0, H-100, W, H], fill=GOLD)
-    d.rectangle([0, H-100, W, H-96], fill=WHITE)
-    d.text((W//2, H-72), bidi("חינוך עושים בשטח."), font=f(900,38), fill=BLACK, anchor="mm")
-    d.text((W//2, H-28), bidi("אמיתי לוי | amitailevi.com"), font=f(300,20), fill=(100,80,10), anchor="mm")
+    tc(d, bidi("אם אין"), 80, f(900,110), WHITE)
+    tc(d, bidi("אני לי —"), 210, f(900,110), GOLD)
+    d.rectangle([250, 350, 830, 354], fill=GOLD)
+    tc(d, bidi("מי לי."), 390, f(900,140), WHITE)
+    tc(d, bidi("הלל הזקן ידע."), 580, f(400,30), (80,80,80))
+    tc(d, bidi("גם אני."), 640, f(900,60), GOLD)
+    d.rectangle([0, H-80, W, H], fill=GOLD)
+    d.text((W//2, H-50), bidi("אמיתי לוי"), font=f(900,32), fill=BLACK, anchor="mm")
     return img
 
-for name, func in [
-    ("test-01.png", p01),
-    ("test-02.png", p02),
-    ("test-03.png", p03),
-]:
+for name, func in [("test-01.png",p01),("test-02.png",p02),("test-03.png",p03)]:
     img = func()
-    path = f"{OUT}/{name}"
-    img.save(path, "PNG", optimize=True)
-    print(f"  {name} ({os.path.getsize(path)//1024}KB)")
-print("\nV5c — Trump energy.")
+    img.save(f"{OUT}/{name}", "PNG", optimize=True)
+    print(f"  {name}")
+print("V5d ready.")
