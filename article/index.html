@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VY1G75TQE"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4VY1G75TQE');</script>
-<title>ראיון בלעדי | אמיתי לוי | עיתון Talk</title>
-<meta name="description" content="ראיון בלעדי עם אמיתי לוי, יזם חינוכי חברתי ובעלים של כפיר צהרונים. על הדרך מאחיעזר לחזית החינוך.">
-<meta property="og:title" content="הבלוף של התעשייה נחשף — ראיון בלעדי עם אמיתי לוי">
-<meta property="og:description" content="המשרד שלי הוא אשכולות הגנים, והסייעת היא המלכה. ראיון מיוחד בעיתון Talk.">
+<title>Exclusive Interview | Amitai Levi | Talk Newspaper</title>
+<meta name="description" content="An exclusive interview with Amitai Levi, a social and educational entrepreneur and owner of Kfir After-School Programmes. The journey from Ahiezer to the forefront of education.">
+<meta property="og:title" content="The Industry&#x27;s Bluff Exposed — An Exclusive Interview with Amitai Levi">
+<meta property="og:description" content="My office is the kindergarten clusters, and the assistant is queen. A special interview in Talk newspaper.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://amitailevi.com/article/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,8 +66,8 @@ body{font-family:'Heebo',sans-serif;background:#fff;color:var(--text);line-heigh
 .share{text-align:center;padding:30px 24px 40px}
 .share p{font-size:.9rem;color:var(--muted);margin-bottom:12px}
 .share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.share-btns a{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:25px;font-size:.85rem;font-weight:700;text-decoration:none;color:#fff;transition:transform .2s}
-.share-btns a:hover{transform:scale(1.05)}
+.share-btns a,.share-btns button{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:25px;font-size:.85rem;font-weight:700;text-decoration:none;color:#fff;transition:transform .2s}
+.share-btns a:hover,.share-btns button:hover{transform:scale(1.05)}
 .btn-wa{background:#25d366}
 .btn-fb{background:#1877f2}
 .btn-copy{background:var(--navy);cursor:pointer;border:none;font-family:inherit}
@@ -88,96 +88,123 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:
   .pull-quote{margin:28px 0;padding:22px 18px}
 }
 </style>
-</head>
+<style>
+.language-toggle{font:700 13px Heebo,Arial,sans-serif;cursor:pointer;border:1px solid #aac9e8;border-radius:20px;background:#fff;color:#102a43;padding:8px 12px;min-height:38px;white-space:nowrap;flex-shrink:0}
+.language-toggle:focus-visible{outline:3px solid #008aff;outline-offset:3px}
+html[dir=ltr] .timeline:before{right:auto;left:26px}html[dir=ltr] .card{margin-right:0;margin-left:62px}html[dir=ltr] .card:before{right:auto;left:-47px}html[dir=ltr] .year{text-align:left}html[dir=ltr] .detail{border-right:0;border-left:4px solid var(--b)}html[dir=ltr] .pc .detail{border-left-color:#55c8ff}html[dir=ltr] .qa .q{padding-right:0;padding-left:16px;border-right:0;border-left:3px solid var(--gold)}
+html[lang=en] .seal small{font-size:.5rem}html[lang=en] .footseal{width:104px;height:104px;padding:10px}.mb .btn{flex-shrink:0}.topbar{gap:10px;flex-wrap:wrap}
+@media(min-width:851px) and (max-width:1100px){html[lang=en] .links{gap:12px;font-size:.78rem}}
+@media(max-width:560px){html[dir=ltr] .timeline:before{left:13px}html[dir=ltr] .card{margin-left:38px}html[dir=ltr] .card:before{left:-34px}html[dir=ltr] .year{text-align:center}.mb{flex-direction:column;align-items:flex-start}html[lang=en] .seal small{font-size:.42rem}html[lang=en] .hero h1{font-size:3.6rem;letter-spacing:-2px}.actions{gap:5px}.language-toggle{padding:8px 10px}}
+</style></head>
 <body>
 
-<div class="topbar">
+<div class="topbar"><button type="button" class="language-toggle" id="language-toggle" lang="he" aria-label="מעבר לעברית">עברית</button>
   <a href="https://amitailevi.com">→ amitailevi.com</a>
-  <span class="site">עיתון Talk | סיוון תשפ״ו</span>
+  <span class="site">Talk Newspaper | Sivan 5786</span>
 </div>
 
 <div class="hero">
-  <div class="badge">ראיון בלעדי</div>
-  <h1>"הבלוף של התעשייה נחשף: המשרד שלי הוא אשכולות הגנים, והסייעת היא המלכה"</h1>
-  <p class="subtitle">אמיתי לוי, יזם חינוכי חברתי, בעלים של חברת כפיר צהרונים, בוגר ישיבת "מורשת יעקב" ובעל תואר ראשון ותעודת הוראה, בראיון בלעדי לעיתון Talk.</p>
-  <div class="source">עיתון Talk | סיוון תשפ״ו</div>
-  <a href="#newspaper" class="paper-btn" style="margin-top:24px">📰 לקריאה מתוך העיתון ↓</a>
+  <div class="badge">Exclusive Interview</div>
+  <h1>"The Industry's Bluff Exposed: My Office Is the Kindergarten Clusters, and the Assistant Is Queen"</h1>
+  <p class="subtitle">Amitai Levi, a social and educational entrepreneur, owner of Kfir After-School Programmes, a graduate of the Moreshet Yaakov yeshiva, and holder of a bachelor's degree and teaching certificate, in an exclusive interview with Talk newspaper.</p>
+  <div class="source">Talk Newspaper | Sivan 5786</div>
+  <a href="#newspaper" class="paper-btn" style="margin-top:24px">📰 Read the Original Newspaper Article ↓</a>
 </div>
 
 <div class="article">
 
 <div class="qa">
-<p class="q">אמיתי, איך מורה לתושב"ע מגיע ליזמות בחינוך ותפעול של מאות עובדים? איפה הכל התחיל?</p>
-<p class="a">זה מתחיל מהשורשים. גדלתי במושב אחיעזר, במשפחה של רבנים, מורים ואנשי הוראה. דוד שלי הוא רבה של המועצה האזורית שדות דן, דוד מרדכי (המנטור שלי) הוא מנהל תלמוד תורה, וסבא שלי זצ"ל היה רב בית הכנסת ומנהיג קהילה. כל הסביבה שבה צמחתי וגדלתי מורכבת מאנשי חינוך. לעסוק בצורכי ציבור – ללמוד וללמד - זה טבעי מהבית. משם היה ברור שאני ממשיך את המסורת ופונה לתואר ראשון בהוראה. אני בוגר ישיבת ההסדר 'מורשת יעקב', שהיא מבחינתי החממה ובית גידול ייחודי למנהלי ומחנכי ישראל. המעבר ליזמות נולד מהרצון לקחת את הערכים בחינוך שאני מוביל ועליהם גדלתי, ולהטמיע אותם במערכות גדולות. ערך הנתינה והחסד – לראות כל אדם ולהאמין בכל אחד, למצוא את הטוב והיכולת למימוש עצמי בכל איש חינוך בשטח. לעבוד עם הלב מול הצוותים החינוכיים לראות אותם ממש, את הקושי והאתגר שיש בכל קבוצת גן או כיתה. גם מורה, גננת וסייעת, צריכה מבוגר שיאמין בה, ינחה אותה ויחזק אותה.</p>
+<p class="q">Amitai, how does a teacher of the Oral Torah become an education entrepreneur managing hundreds of employees? Where did it all begin?</p>
+<p class="a">It starts with my roots. I grew up in Moshav Ahiezer, in a family of rabbis, teachers and educators. One of my uncles is the rabbi of the Sdot Dan Regional Council, my uncle Mordechai (my mentor) runs a Talmud Torah school, and my late grandfather was a synagogue rabbi and community leader. The entire environment I grew up in was made up of educators. Serving the community — learning and teaching — came naturally from home. From there, it was clear that I would continue the tradition and pursue a bachelor's degree in teaching. I am a graduate of the Moreshet Yaakov hesder yeshiva, which I see as a unique incubator and training ground for Israel's managers and educators. The move into entrepreneurship grew out of a desire to take the educational values I champion and grew up with, and embed them in large systems. The values of giving and kindness — seeing every person and believing in everyone, finding the good and the potential for self-fulfilment in every educator on the ground. Working from the heart with educational teams, truly seeing them and the difficulties and challenges in every kindergarten group or classroom. A teacher, kindergarten teacher or assistant also needs an adult who believes in her, guides her and strengthens her.</p>
 </div>
 
 <div class="qa">
-<p class="q">משם הגעת לשליחות באוסטרליה. המיונים לשם קשים, בטח כשיש את מחסום השפה. איך צלחת את זה?</p>
-<p class="a">אתה שואל איך ילד תימני מאחיעזר מגיע פתאום לקצה השני של העולם? המיונים לשליחות היו באמת אינטנסיביים, והיה גם אתגר עם האנגלית. לשמחתי, הקהילה במלבורן מאוד חזקה, מחוברת וציונית. היה להם חשוב הידע התורני שלי, הוורבליות בדברי תורה, הצבע שאני מביא לשיעור והיכולת שלי למשוך את התלמידים, לרתק אותם ולדבר איתם על יהדות מהלב.</p>
+<p class="q">From there, you went on an educational mission to Australia. The selection process is tough, especially with the language barrier. How did you get through it?</p>
+<p class="a">Are you asking how a Yemenite boy from Ahiezer suddenly ends up on the other side of the world? The selection process was indeed intensive, and English was a challenge too. Fortunately, the Melbourne community is very strong, close-knit and Zionist. What mattered to them was my Torah knowledge, my ability to express Torah ideas, the colour I bring to a lesson, and my ability to draw students in, captivate them and talk to them about Judaism from the heart.</p>
 </div>
 
 <div class="qa">
-<p class="q">היה מישהו שהאמין בך כשלא כולם ראו?</p>
-<p class="a">אומרים ש'כל ילד צריך מבוגר אחד שיאמין בו'. אצלי זו לא קלישאה – זו המציאות שלי. כשיצאתי למיונים, היה רב אחד שנלחם עליי, האמין בי ואמר לי: 'הם חייבים את הידע התורני והאנרגיה שלך'. הוא ראה בי את מה שלא כולם ראו. את הגישה הזו אני מיישם היום ב'כפיר צהרונים'. הצוותים שלי צריכים שאני אאמין בהם. כשאני מאמין בצוות ונותן לו גב אמיתי, הוא יכול לייצר אקלים חינוכי מדהים עבור הילדים.</p>
+<p class="q">Was there someone who believed in you when not everyone saw your potential?</p>
+<p class="a">They say that 'every child needs one adult who believes in them'. For me, that is not a cliché — it is my reality. When I went through the selection process, there was one rabbi who fought for me, believed in me and told me: 'They need your Torah knowledge and your energy.' He saw what not everyone saw. That is the approach I apply today at Kfir After-School Programmes. My teams need me to believe in them. When I believe in a team and genuinely back it, it can create an incredible educational environment for the children.</p>
 </div>
 
 <div class="pull-quote">
-<p>כשפתאום נכנס גבר בן 24 לבית המדרש ואמר לי: "שלום, גיליתי אתמול שאני יהודי. מה זה אומר?" — ואתה פשוט מתחיל איתו מהתחלה.</p>
+<p>Suddenly, a 24-year-old man walked into the study hall and said: "Hello, I discovered yesterday that I'm Jewish. What does that mean?" — and you simply start with him from the beginning.</p>
 </div>
 
 <div class="qa">
-<p class="q">מה היה הרגע המכונן עבורך שם בשליחות?</p>
-<p class="a">הרגע המרגש ביותר היה כשפתאום נכנס גבר בן 24 לבית המדרש ואמר לי: 'שלום, גיליתי אתמול שאני יהודי. מה זה אומר?' ואתה פשוט מתחיל איתו מהתחלה... מודה אני, נטילת ידיים, שלושה אבות, ארבע אימהות. מי זה רש"י? ורבי עקיבא? לעמוד שם ולראות מישהו מגלה את הזהות שלו דרכך – זה רגע שמרעיד אותך. עד היום אני ובנג'י חברים טובים. ב-7 באוקטובר הוא היה הראשון שהתקשר אליי.</p>
+<p class="q">What was the defining moment for you during that mission?</p>
+<p class="a">The most moving moment was when a 24-year-old man suddenly walked into the study hall and said: 'Hello, I discovered yesterday that I'm Jewish. What does that mean?' And you simply start with him from the beginning... Modeh Ani, ritual handwashing, the three patriarchs, the four matriarchs. Who is Rashi? And Rabbi Akiva? To stand there and see someone discover his identity through you — that is a moment that shakes you. Benji and I are still good friends today. On October 7, he was the first person to call me.</p>
 </div>
 
 <div class="qa">
-<p class="q">מה השיעור הניהולי הגדול שהבאת מאוסטרליה ל"כפיר צהרונים" בארץ?</p>
-<p class="a">חזרתי משם עם אמונה בוערת שאפשר וצריך אחרת. את התפנית המשמעותית עברתי ב'מלבורן יבנה', שם ראיתי שאפשר להתייחס אחרת לגמרי לאנשי החינוך, והבנתי שזה מתחיל בנו, המנהלים. היחס שלנו לצוות הוא זה שעובר הלאה להורים ולילדים. כשסייעת שמחה הילד שמח, וכשהיא עצובה – הילד עצוב. לכן הגעתי לעשות תיקון: אצלנו הסייעת היא המלכה. היא האמא והלב של הצהרון.</p>
+<p class="q">What was the biggest management lesson you brought back from Australia to Kfir After-School Programmes in Israel?</p>
+<p class="a">I returned with a burning belief that things can and must be different. The significant turning point came at Yavneh in Melbourne, where I saw that educators could be treated completely differently, and realised that it starts with us, the managers. The way we treat our teams is passed on to parents and children. When an assistant is happy, the child is happy; when she is sad, the child is sad. So I came to put things right: with us, the assistant is queen. She is the mother and the heart of the after-school programme.</p>
 </div>
 
 <div class="qa">
-<p class="q">מכל תחומי החינוך, בחרת להיכנס דווקא לעין הסערה של הצהרונים. מה אנחנו לא יודעים על המערכת?</p>
-<p class="a">דבר שלא יודעים.. הוא הבלוף שמוכרים לרשויות אשליה. מנהל אגף חינוך חותם מול חברה, ואז הבעלים נעלם למשרד הממוזג ושולח רכזים לשטח. אני מסרב לשבת במשרד עם המזגן. המשרד שלי הוא אשכולות הגנים. חינוך זה כאן ועכשיו, פתרון בעיות בזמן אמת. אני הרמטכ"ל שנמצא בחוד החנית כדי לתת דוגמה אישית, ולא במגדל השן. בזכות אשתי מירי לוי, עורכת דין עם תואר שני שמנהלת את המשרד, השכר, הספקים והביטוחים ביד רמה – אני פנוי להיות 100% בשטח. ב-1 ביולי, בשיא החום, אני מסייר מ-7:00 עד 16:00, עובר גן-גן וכיתה-כיתה כדי לתקן ולדייק בזמן אמת.</p>
+<p class="q">Of all the areas of education, you chose to enter the eye of the storm: after-school programmes. What don't we know about the system?</p>
+<p class="a">Something people don't know is the bluff — local authorities are being sold an illusion. An education department head signs with a company, and then the owner disappears into an air-conditioned office and sends coordinators into the field. I refuse to sit in an air-conditioned office. My office is the kindergarten clusters. Education is here and now, solving problems in real time. I am the chief of staff at the front, leading by example, not in an ivory tower. Thanks to my wife, Miri Levi, a lawyer with a master's degree who expertly manages the office, payroll, suppliers and insurance, I am free to be 100% in the field. On July 1, in the peak of the heat, I make rounds from 7:00 AM to 4:00 PM, moving from kindergarten to kindergarten and classroom to classroom to fix and fine-tune things in real time.</p>
 </div>
 
 <div class="qa">
-<p class="q">לסיום, איזה טיפ יש לך להורה שבוחן צהרון לילד שלו?</p>
-<p class="a">אל תסתכלו רק על הפרוספקט. תסתכלו לצוות בעיניים. שידוך בין גננת לסייעת הוא קריטי; אם אין כימיה והן לא מגובשות, הילדים ירגישו את זה מיד וזה יבוא על חשבונם. חיבור וגיבוש הצוות הוא חובה להצלחת הגן ושמחת הילדים. אם יש מנהל שחי את השטח ולוקח אחריות אישית על כל שידוך וכל חיוך – אתם יכולים לישון בשקט.</p>
+<p class="q">Finally, what advice would you give a parent choosing an after-school programme for their child?</p>
+<p class="a">Don't just look at the brochure. Look the team in the eyes. Matching a kindergarten teacher with an assistant is critical; if there is no chemistry and they are not a cohesive team, the children will feel it immediately and pay the price. Connecting and uniting the team is essential to the kindergarten's success and the children's happiness. If there is a manager who lives the day-to-day work and takes personal responsibility for every pairing and every smile, you can sleep soundly.</p>
 </div>
 
 </div>
 
 <div class="newspaper" id="newspaper">
-  <h3>📰 הכתבה כפי שפורסמה בעיתון Talk</h3>
-  <p class="sub">סיוון תשפ״ו | גיליון מיוחד</p>
+  <h3>📰 The Article as Published in Talk Newspaper</h3>
+  <p class="sub">Sivan 5786 | Special Issue</p>
   <div class="pages">
-    <img src="newspaper-page-1.jpg" alt="כתבה בעיתון Talk — עמוד 1" loading="lazy">
-    <img src="newspaper-page-2.jpg" alt="כתבה בעיתון Talk — עמוד 2" loading="lazy">
+    <img src="newspaper-page-1.jpg" alt="Talk newspaper article — page 1 (Hebrew)" loading="lazy">
+    <img src="newspaper-page-2.jpg" alt="Talk newspaper article — page 2 (Hebrew)" loading="lazy">
   </div>
-  <a href="talk-article.pdf" class="pdf-link" target="_blank">📄 להורדת הכתבה כ-PDF</a>
+  <a href="talk-article.pdf" class="pdf-link" target="_blank">📄 Download the Original Article as a PDF</a>
 </div>
 
 <div class="closing">
   <div class="gold-line"></div>
-  <p class="quote">השליחות שלי היא להחזיר את הנשמה למערכת, כי חינוך לא עושים מהמשרד. עושים אותו דרך הרגליים, עם הלב, ובגובה העיניים של הצוותים, ההורים והילדים.</p>
+  <p class="quote">My mission is to bring the soul back into the system, because education isn't done from an office. It is done on your feet, with your heart, and at eye level with the teams, parents and children.</p>
   <div class="gold-line"></div>
 </div>
 
 <div class="share">
-  <p>שתפו את הכתבה:</p>
+  <p>Share the Article:</p>
   <div class="share-btns">
-    <a class="btn-wa" href="https://wa.me/?text=%D7%A8%D7%90%D7%99%D7%95%D7%9F%20%D7%91%D7%9C%D7%A2%D7%93%D7%99%20%D7%A2%D7%9D%20%D7%90%D7%9E%D7%99%D7%AA%D7%99%20%D7%9C%D7%95%D7%99%20%7C%20%D7%A2%D7%99%D7%AA%D7%95%D7%9F%20Talk%0Ahttps://amitailevi.com/article/" target="_blank">וואצאפ</a>
-    <a class="btn-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://amitailevi.com/article/" target="_blank">פייסבוק</a>
-    <a class="btn-copy" onclick="navigator.clipboard.writeText('https://amitailevi.com/article/');this.textContent='✓ הועתק!'">העתק לינק</a>
+    <a class="btn-wa" href="https://wa.me/?text=Exclusive%20interview%20with%20Amitai%20Levi%20%7C%20Talk%20Newspaper%0Ahttps://amitailevi.com/article/" target="_blank">WhatsApp</a>
+    <a class="btn-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://amitailevi.com/article/" target="_blank">Facebook</a>
+    <button type="button" class="btn-copy">Copy Link</button>
   </div>
 </div>
 
 <div class="cta-bar">
-  <a href="https://amitailevi.com">לאתר הראשי →</a>
-  <p>מחזירים את החיוך לחינוך</p>
+  <a href="https://amitailevi.com">Back to the Main Website ←</a>
+  <p>Bringing the Smile Back to Education</p>
 </div>
 
-<footer>&copy; 2026 כפיר פרויקטים בחינוך — אמיתי לוי יזמות בע״מ</footer>
+<footer>© 2026 Kfir Education Projects — Amitai Levi Entrepreneurship Ltd.</footer>
 
-</body>
+<script>
+(()=>{
+ const pairs=[["Exclusive Interview | Amitai Levi | Talk Newspaper", "ראיון בלעדי | אמיתי לוי | עיתון Talk"], ["Talk Newspaper | Sivan 5786", "עיתון Talk | סיוון תשפ״ו"], ["Exclusive Interview", "ראיון בלעדי"], ["\"The Industry's Bluff Exposed: My Office Is the Kindergarten Clusters, and the Assistant Is Queen\"", "\"הבלוף של התעשייה נחשף: המשרד שלי הוא אשכולות הגנים, והסייעת היא המלכה\""], ["Amitai Levi, a social and educational entrepreneur, owner of Kfir After-School Programmes, a graduate of the Moreshet Yaakov yeshiva, and holder of a bachelor's degree and teaching certificate, in an exclusive interview with Talk newspaper.", "אמיתי לוי, יזם חינוכי חברתי, בעלים של חברת כפיר צהרונים, בוגר ישיבת \"מורשת יעקב\" ובעל תואר ראשון ותעודת הוראה, בראיון בלעדי לעיתון Talk."], ["Talk Newspaper | Sivan 5786", "עיתון Talk | סיוון תשפ״ו"], ["📰 Read the Original Newspaper Article ↓", "📰 לקריאה מתוך העיתון ↓"], ["Amitai, how does a teacher of the Oral Torah become an education entrepreneur managing hundreds of employees? Where did it all begin?", "אמיתי, איך מורה לתושב\"ע מגיע ליזמות בחינוך ותפעול של מאות עובדים? איפה הכל התחיל?"], ["It starts with my roots. I grew up in Moshav Ahiezer, in a family of rabbis, teachers and educators. One of my uncles is the rabbi of the Sdot Dan Regional Council, my uncle Mordechai (my mentor) runs a Talmud Torah school, and my late grandfather was a synagogue rabbi and community leader. The entire environment I grew up in was made up of educators. Serving the community — learning and teaching — came naturally from home. From there, it was clear that I would continue the tradition and pursue a bachelor's degree in teaching. I am a graduate of the Moreshet Yaakov hesder yeshiva, which I see as a unique incubator and training ground for Israel's managers and educators. The move into entrepreneurship grew out of a desire to take the educational values I champion and grew up with, and embed them in large systems. The values of giving and kindness — seeing every person and believing in everyone, finding the good and the potential for self-fulfilment in every educator on the ground. Working from the heart with educational teams, truly seeing them and the difficulties and challenges in every kindergarten group or classroom. A teacher, kindergarten teacher or assistant also needs an adult who believes in her, guides her and strengthens her.", "זה מתחיל מהשורשים. גדלתי במושב אחיעזר, במשפחה של רבנים, מורים ואנשי הוראה. דוד שלי הוא רבה של המועצה האזורית שדות דן, דוד מרדכי (המנטור שלי) הוא מנהל תלמוד תורה, וסבא שלי זצ\"ל היה רב בית הכנסת ומנהיג קהילה. כל הסביבה שבה צמחתי וגדלתי מורכבת מאנשי חינוך. לעסוק בצורכי ציבור – ללמוד וללמד - זה טבעי מהבית. משם היה ברור שאני ממשיך את המסורת ופונה לתואר ראשון בהוראה. אני בוגר ישיבת ההסדר 'מורשת יעקב', שהיא מבחינתי החממה ובית גידול ייחודי למנהלי ומחנכי ישראל. המעבר ליזמות נולד מהרצון לקחת את הערכים בחינוך שאני מוביל ועליהם גדלתי, ולהטמיע אותם במערכות גדולות. ערך הנתינה והחסד – לראות כל אדם ולהאמין בכל אחד, למצוא את הטוב והיכולת למימוש עצמי בכל איש חינוך בשטח. לעבוד עם הלב מול הצוותים החינוכיים לראות אותם ממש, את הקושי והאתגר שיש בכל קבוצת גן או כיתה. גם מורה, גננת וסייעת, צריכה מבוגר שיאמין בה, ינחה אותה ויחזק אותה."], ["From there, you went on an educational mission to Australia. The selection process is tough, especially with the language barrier. How did you get through it?", "משם הגעת לשליחות באוסטרליה. המיונים לשם קשים, בטח כשיש את מחסום השפה. איך צלחת את זה?"], ["Are you asking how a Yemenite boy from Ahiezer suddenly ends up on the other side of the world? The selection process was indeed intensive, and English was a challenge too. Fortunately, the Melbourne community is very strong, close-knit and Zionist. What mattered to them was my Torah knowledge, my ability to express Torah ideas, the colour I bring to a lesson, and my ability to draw students in, captivate them and talk to them about Judaism from the heart.", "אתה שואל איך ילד תימני מאחיעזר מגיע פתאום לקצה השני של העולם? המיונים לשליחות היו באמת אינטנסיביים, והיה גם אתגר עם האנגלית. לשמחתי, הקהילה במלבורן מאוד חזקה, מחוברת וציונית. היה להם חשוב הידע התורני שלי, הוורבליות בדברי תורה, הצבע שאני מביא לשיעור והיכולת שלי למשוך את התלמידים, לרתק אותם ולדבר איתם על יהדות מהלב."], ["Was there someone who believed in you when not everyone saw your potential?", "היה מישהו שהאמין בך כשלא כולם ראו?"], ["They say that 'every child needs one adult who believes in them'. For me, that is not a cliché — it is my reality. When I went through the selection process, there was one rabbi who fought for me, believed in me and told me: 'They need your Torah knowledge and your energy.' He saw what not everyone saw. That is the approach I apply today at Kfir After-School Programmes. My teams need me to believe in them. When I believe in a team and genuinely back it, it can create an incredible educational environment for the children.", "אומרים ש'כל ילד צריך מבוגר אחד שיאמין בו'. אצלי זו לא קלישאה – זו המציאות שלי. כשיצאתי למיונים, היה רב אחד שנלחם עליי, האמין בי ואמר לי: 'הם חייבים את הידע התורני והאנרגיה שלך'. הוא ראה בי את מה שלא כולם ראו. את הגישה הזו אני מיישם היום ב'כפיר צהרונים'. הצוותים שלי צריכים שאני אאמין בהם. כשאני מאמין בצוות ונותן לו גב אמיתי, הוא יכול לייצר אקלים חינוכי מדהים עבור הילדים."], ["Suddenly, a 24-year-old man walked into the study hall and said: \"Hello, I discovered yesterday that I'm Jewish. What does that mean?\" — and you simply start with him from the beginning.", "כשפתאום נכנס גבר בן 24 לבית המדרש ואמר לי: \"שלום, גיליתי אתמול שאני יהודי. מה זה אומר?\" — ואתה פשוט מתחיל איתו מהתחלה."], ["What was the defining moment for you during that mission?", "מה היה הרגע המכונן עבורך שם בשליחות?"], ["The most moving moment was when a 24-year-old man suddenly walked into the study hall and said: 'Hello, I discovered yesterday that I'm Jewish. What does that mean?' And you simply start with him from the beginning... Modeh Ani, ritual handwashing, the three patriarchs, the four matriarchs. Who is Rashi? And Rabbi Akiva? To stand there and see someone discover his identity through you — that is a moment that shakes you. Benji and I are still good friends today. On October 7, he was the first person to call me.", "הרגע המרגש ביותר היה כשפתאום נכנס גבר בן 24 לבית המדרש ואמר לי: 'שלום, גיליתי אתמול שאני יהודי. מה זה אומר?' ואתה פשוט מתחיל איתו מהתחלה... מודה אני, נטילת ידיים, שלושה אבות, ארבע אימהות. מי זה רש\"י? ורבי עקיבא? לעמוד שם ולראות מישהו מגלה את הזהות שלו דרכך – זה רגע שמרעיד אותך. עד היום אני ובנג'י חברים טובים. ב-7 באוקטובר הוא היה הראשון שהתקשר אליי."], ["What was the biggest management lesson you brought back from Australia to Kfir After-School Programmes in Israel?", "מה השיעור הניהולי הגדול שהבאת מאוסטרליה ל\"כפיר צהרונים\" בארץ?"], ["I returned with a burning belief that things can and must be different. The significant turning point came at Yavneh in Melbourne, where I saw that educators could be treated completely differently, and realised that it starts with us, the managers. The way we treat our teams is passed on to parents and children. When an assistant is happy, the child is happy; when she is sad, the child is sad. So I came to put things right: with us, the assistant is queen. She is the mother and the heart of the after-school programme.", "חזרתי משם עם אמונה בוערת שאפשר וצריך אחרת. את התפנית המשמעותית עברתי ב'מלבורן יבנה', שם ראיתי שאפשר להתייחס אחרת לגמרי לאנשי החינוך, והבנתי שזה מתחיל בנו, המנהלים. היחס שלנו לצוות הוא זה שעובר הלאה להורים ולילדים. כשסייעת שמחה הילד שמח, וכשהיא עצובה – הילד עצוב. לכן הגעתי לעשות תיקון: אצלנו הסייעת היא המלכה. היא האמא והלב של הצהרון."], ["Of all the areas of education, you chose to enter the eye of the storm: after-school programmes. What don't we know about the system?", "מכל תחומי החינוך, בחרת להיכנס דווקא לעין הסערה של הצהרונים. מה אנחנו לא יודעים על המערכת?"], ["Something people don't know is the bluff — local authorities are being sold an illusion. An education department head signs with a company, and then the owner disappears into an air-conditioned office and sends coordinators into the field. I refuse to sit in an air-conditioned office. My office is the kindergarten clusters. Education is here and now, solving problems in real time. I am the chief of staff at the front, leading by example, not in an ivory tower. Thanks to my wife, Miri Levi, a lawyer with a master's degree who expertly manages the office, payroll, suppliers and insurance, I am free to be 100% in the field. On July 1, in the peak of the heat, I make rounds from 7:00 AM to 4:00 PM, moving from kindergarten to kindergarten and classroom to classroom to fix and fine-tune things in real time.", "דבר שלא יודעים.. הוא הבלוף שמוכרים לרשויות אשליה. מנהל אגף חינוך חותם מול חברה, ואז הבעלים נעלם למשרד הממוזג ושולח רכזים לשטח. אני מסרב לשבת במשרד עם המזגן. המשרד שלי הוא אשכולות הגנים. חינוך זה כאן ועכשיו, פתרון בעיות בזמן אמת. אני הרמטכ\"ל שנמצא בחוד החנית כדי לתת דוגמה אישית, ולא במגדל השן. בזכות אשתי מירי לוי, עורכת דין עם תואר שני שמנהלת את המשרד, השכר, הספקים והביטוחים ביד רמה – אני פנוי להיות 100% בשטח. ב-1 ביולי, בשיא החום, אני מסייר מ-7:00 עד 16:00, עובר גן-גן וכיתה-כיתה כדי לתקן ולדייק בזמן אמת."], ["Finally, what advice would you give a parent choosing an after-school programme for their child?", "לסיום, איזה טיפ יש לך להורה שבוחן צהרון לילד שלו?"], ["Don't just look at the brochure. Look the team in the eyes. Matching a kindergarten teacher with an assistant is critical; if there is no chemistry and they are not a cohesive team, the children will feel it immediately and pay the price. Connecting and uniting the team is essential to the kindergarten's success and the children's happiness. If there is a manager who lives the day-to-day work and takes personal responsibility for every pairing and every smile, you can sleep soundly.", "אל תסתכלו רק על הפרוספקט. תסתכלו לצוות בעיניים. שידוך בין גננת לסייעת הוא קריטי; אם אין כימיה והן לא מגובשות, הילדים ירגישו את זה מיד וזה יבוא על חשבונם. חיבור וגיבוש הצוות הוא חובה להצלחת הגן ושמחת הילדים. אם יש מנהל שחי את השטח ולוקח אחריות אישית על כל שידוך וכל חיוך – אתם יכולים לישון בשקט."], ["📰 The Article as Published in Talk Newspaper", "📰 הכתבה כפי שפורסמה בעיתון Talk"], ["Sivan 5786 | Special Issue", "סיוון תשפ״ו | גיליון מיוחד"], ["📄 Download the Original Article as a PDF", "📄 להורדת הכתבה כ-PDF"], ["My mission is to bring the soul back into the system, because education isn't done from an office. It is done on your feet, with your heart, and at eye level with the teams, parents and children.", "השליחות שלי היא להחזיר את הנשמה למערכת, כי חינוך לא עושים מהמשרד. עושים אותו דרך הרגליים, עם הלב, ובגובה העיניים של הצוותים, ההורים והילדים."], ["Share the Article:", "שתפו את הכתבה:"], ["WhatsApp", "וואצאפ"], ["Facebook", "פייסבוק"], ["Copy Link", "העתק לינק"], ["Back to the Main Website ←", "לאתר הראשי →"], ["Bringing the Smile Back to Education", "מחזירים את החיוך לחינוך"], ["© 2026 Kfir Education Projects — Amitai Levi Entrepreneurship Ltd.", "© 2026 כפיר פרויקטים בחינוך — אמיתי לוי יזמות בע״מ"]], attributes=[["content", "An exclusive interview with Amitai Levi, a social and educational entrepreneur and owner of Kfir After-School Programmes. The journey from Ahiezer to the forefront of education.", "ראיון בלעדי עם אמיתי לוי, יזם חינוכי חברתי ובעלים של כפיר צהרונים. על הדרך מאחיעזר לחזית החינוך."], ["content", "The Industry's Bluff Exposed — An Exclusive Interview with Amitai Levi", "הבלוף של התעשייה נחשף — ראיון בלעדי עם אמיתי לוי"], ["content", "My office is the kindergarten clusters, and the assistant is queen. A special interview in Talk newspaper.", "המשרד שלי הוא אשכולות הגנים, והסייעת היא המלכה. ראיון מיוחד בעיתון Talk."], ["alt", "Talk newspaper article — page 1 (Hebrew)", "כתבה בעיתון Talk — עמוד 1"], ["alt", "Talk newspaper article — page 2 (Hebrew)", "כתבה בעיתון Talk — עמוד 2"]];
+ const translations=new Map(pairs.map(([en,he])=>[en,he]));
+ const nodes=[]; const walker=document.createTreeWalker(document.documentElement,NodeFilter.SHOW_TEXT);
+ while(walker.nextNode()){const n=walker.currentNode;if(!['SCRIPT','STYLE'].includes(n.parentElement?.tagName)&&translations.has(n.textContent))nodes.push([n,n.textContent,translations.get(n.textContent)]);}
+ const attrNodes=[];for(const [attr,en,he] of attributes)for(const el of document.querySelectorAll('['+attr+']'))if(el.getAttribute(attr)===en)attrNodes.push([el,attr,en,he]);
+ const button=document.getElementById('language-toggle');
+ function setLanguage(lang){
+  lang=lang==='he'?'he':'en'; document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';
+  for(const [node,en,he] of nodes)node.textContent=lang==='he'?he:en;
+  for(const [el,attr,en,he] of attrNodes)el.setAttribute(attr,lang==='he'?he:en);
+  button.textContent=lang==='he'?'English':'עברית';button.lang=lang==='he'?'en':'he';button.setAttribute('aria-label',lang==='he'?'Switch to English':'מעבר לעברית');
+  try{localStorage.setItem('amitai-language',lang)}catch(e){}
+ }
+ button.addEventListener('click',()=>setLanguage(document.documentElement.lang==='he'?'en':'he'));
+ let preferred='en';try{preferred=localStorage.getItem('amitai-language')||'en'}catch(e){}
+ const requested=new URLSearchParams(location.search).get('lang');setLanguage(requested==='he'||requested==='en'?requested:preferred);
+ const copy=document.querySelector('.btn-copy');if(copy)copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.origin+location.pathname);copy.textContent=document.documentElement.lang==='he'?'✓ הועתק!':'✓ Copied!'}catch(e){copy.textContent=document.documentElement.lang==='he'?'יש להעתיק את הכתובת משורת הכתובת':'Copy the URL from the address bar'}});
+})();
+</script></body>
 </html>
